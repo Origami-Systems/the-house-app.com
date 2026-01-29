@@ -6,7 +6,3 @@
 .ignore-div {
     display: contents;
 }
-
-.capitalize {
-    text-transform: capitalize;
-}

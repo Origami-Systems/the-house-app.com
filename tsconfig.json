@@ -5,8 +5,7 @@
         "**/*"
     ],
     "exclude": [
-        "dist",
-        "nuxt"
+        "dist"
     ],
     "compilerOptions": {
         // Needed for TypeScript intellisense in the template inside Vue files
