@@ -16,7 +16,7 @@ const props = defineProps<{
 const isActive = ref(false);
 
 onMounted(() => {
-    isActive.value = window.location.pathname === props.to;
+    isActive.value = window.location.pathname.includes(props.to);
 });
 </script>
 
