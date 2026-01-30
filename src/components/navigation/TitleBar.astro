@@ -1,0 +1,127 @@
+---
+import { Image } from "astro:assets";
+import SideBarGroup from "@/navigation/SideBarGroup.vue";
+import LocalSwitchThemes from "@/LocalSwitchThemes.vue";
+import TitleBarItem from "./TitleBarItem.vue";
+import faviconDark from "@assets/icons/dark/favicon.svg";
+import faviconLight from "@assets/icons/light/favicon.svg";
+---
+
+<div class="title-bar">
+    <div class="left-window-controls">
+        <a href="/" class="icon-link">
+            <Image
+                src={faviconDark}
+                alt="Logo"
+                class="icon icon-dark"
+                width="30"
+            />
+            <Image
+                src={faviconLight}
+                alt="Logo"
+                class="icon icon-light"
+                width="30"
+            />
+        </a>
+
+        <div class="tabs">
+            <TitleBarItem
+                id="tb-home"
+                to="/"
+                data-astro-prefetch
+                client:only="vue">Home</TitleBarItem
+            >
+            <TitleBarItem
+                id="tb-bugs"
+                to="/bugs-tracker"
+                data-astro-prefetch
+                client:only="vue">Bugs</TitleBarItem
+            >
+            <TitleBarItem
+                id="tb-blog"
+                to="/blog"
+                data-astro-prefetch
+                client:only="vue">Blog</TitleBarItem
+            >
+            <TitleBarItem
+                id="tb-contact"
+                to="/contact"
+                data-astro-prefetch
+                client:only="vue">Contact</TitleBarItem
+            >
+        </div>
+    </div>
+    <div class="right-window-controls">
+        <LocalSwitchThemes client:only="vue" />
+    </div>
+</div>
+<div class="sidebar">
+    <SideBarGroup client:only="vue" />
+</div>
+
+<style lang="scss">
+    .title-bar {
+        position: fixed;
+        top: env(safe-area-inset-top, 0);
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        height: calc(55px + env(safe-area-inset-top, 0));
+        padding-top: env(safe-area-inset-top, 0);
+
+        background-color: var(--background-0);
+        border-bottom: var(--divider-thin);
+        z-index: 999;
+        transition: var(--transitions);
+
+        .left-window-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: max(20px, env(safe-area-inset-left, 0));
+        }
+
+        .right-window-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-right: max(20px, env(safe-area-inset-right, 0));
+        }
+    }
+
+    .tabs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    @media (max-width: 650px) {
+        .tabs {
+            display: none;
+        }
+    }
+
+    @media (min-width: 650px) {
+        .sidebar {
+            display: none;
+        }
+    }
+    .icon {
+        user-select: none;
+    }
+
+    .icon-dark {
+        display: none;
+    }
+
+    :global(html.dark) .icon-light {
+        display: none;
+    }
+
+    :global(html.dark) .icon-dark {
+        display: inline;
+    }
+</style>

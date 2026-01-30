@@ -1,0 +1,26 @@
+---
+import MainLayout from "~/layouts/MainLayout.astro";
+import ContactForm from "@/ContactForm.vue";
+import { Card } from "@origami-systems/ui";
+---
+
+<MainLayout title="Contact - The House App">
+    <div class="acard">
+        <Card title="Contact Us">
+            <p>
+                We would love to hear from you! Please fill out the form and we
+                will get back to you shortly.
+            </p>
+            <ContactForm client:only="vue" />
+        </Card>
+    </div>
+</MainLayout>
+
+<style lang="scss">
+    .acard {
+        :global(.card) {
+            width: 100%;
+            max-width: 700px;
+        }
+    }
+</style>

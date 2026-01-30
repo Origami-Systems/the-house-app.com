@@ -1,0 +1,188 @@
+---
+import { Image } from "astro:assets";
+import { Card } from "@origami-systems/ui";
+import MainLayout from "~/layouts/MainLayout.astro";
+import InfoEmail from "@/InfoEmail.astro";
+import wordmarkDark from "@assets/icons/dark/wordmark.png";
+import wordmarkLight from "@assets/icons/light/wordmark.png";
+---
+
+<MainLayout>
+    <div id="index">
+        <section class="intro">
+            <div class="logo">
+                <Image
+                    src={wordmarkDark}
+                    alt="The House App Logo"
+                    class="icon icon-dark"
+                />
+                <Image
+                    src={wordmarkLight}
+                    alt="The House App Logo"
+                    class="icon icon-light"
+                />
+            </div>
+
+            <h1 class="tagline">
+                Building community through friendly competition
+            </h1>
+        </section>
+        <div class="index-card">
+            <Card title="About the House System">
+                <section class="about-section">
+                    <p>
+                        Originating in British Commonwealth boarding schools,
+                        the house system has evolved into a cornerstone of
+                        educational institutions worldwide. It not only provides
+                        organizational structure but also cultivates leadership
+                        and community among students.
+                    </p>
+                </section>
+            </Card>
+        </div>
+        <div class="index-card">
+            <Card title="About The App">
+                <section class="about-section">
+                    <p>
+                        The House App is a cutting-edge tool designed to enrich
+                        the educational journey for students and teachers alike.
+                        It offers insights to track house-related activities and
+                        achievements, fostering engagement within the school
+                        community. There is also a <a
+                            class="text-link"
+                            href="https://app.the-house-app.com/example"
+                            target="_blank">full example of the app</a
+                        >.
+                    </p>
+                </section>
+            </Card>
+        </div>
+        <div class="index-card">
+            <Card title="Key Features">
+                <section class="key-features">
+                    <ul>
+                        <li class="list-item">
+                            <strong>Customizable Houses:</strong> Tailor the app to
+                            reflect your school’s unique culture by creating and customizing
+                            house names, colors, and even adjusting the number of
+                            houses.
+                        </li>
+                        <li class="list-item">
+                            <strong>Instant Recognition:</strong> Deans can effortlessly
+                            award points to deserving students via the app, ensuring
+                            prompt acknowledgment of their efforts.
+                        </li>
+                        <li class="list-item">
+                            <strong>Announcements:</strong> Administrators can broadcast
+                            crucial announcements to all users, fostering effective
+                            communication and transparency.
+                        </li>
+                        <li class="list-item">
+                            <strong>Calendar:</strong> Administrators can create a
+                            calendar for students, leaders, and/or deans. This system
+                            allows for even more communication.
+                        </li>
+                        <li class="list-item">
+                            <strong>Not Just for Schools:</strong> Any type of organization
+                            can use the app, it may even contain customized features
+                            to that organization.
+                        </li>
+                    </ul>
+                </section>
+            </Card>
+        </div>
+        <div class="index-card">
+            <Card title="More Info">
+                <section>
+                    <p>
+                        If you would like more details, please reach out by
+                        email at
+                        <InfoEmail />.
+                    </p>
+                </section>
+            </Card>
+        </div>
+        <div class="index-card">
+            <Card title="Ready to Use the App?">
+                <section class="login-section">
+                    <p>
+                        If you're part of a school or organization using The
+                        House App, you can <a
+                            class="text-link"
+                            href="https://app.the-house-app.com"
+                            >log in
+                        </a>.
+                    </p>
+                </section>
+            </Card>
+        </div>
+    </div>
+</MainLayout>
+<style lang="scss">
+    #index {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        max-width: 100%;
+    }
+    .logo {
+        img {
+            height: auto;
+            max-width: 400px;
+        }
+        user-select: none;
+    }
+
+    .icon {
+        max-width: 400px;
+    }
+
+    .icon-dark {
+        display: none;
+    }
+
+    :global(html.dark) .icon-light {
+        display: none;
+    }
+
+    :global(html.dark) .icon-dark {
+        display: inline;
+    }
+
+    .intro {
+        max-width: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        justify-content: space-evenly;
+        margin: 10em;
+    }
+
+    .index-card {
+        display: contents;
+
+        :global(.card) {
+            max-width: 80%;
+            width: 100%;
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 750px) {
+        .intro {
+            flex-direction: column;
+            margin: 5em;
+
+            .logo {
+                margin-bottom: 2em;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+</style>

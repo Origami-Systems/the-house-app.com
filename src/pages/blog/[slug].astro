@@ -1,0 +1,64 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import MainLayout from "~/layouts/MainLayout.astro";
+import { components } from "@/ContentComponents.astro";
+
+export type Props = {
+    post: CollectionEntry<"blog">;
+};
+
+export async function getStaticPaths() {
+    const unsortedPosts = await getCollection("blog");
+    const posts = unsortedPosts.sort(
+        (a, b) => Number(b.data.timestamp) - Number(a.data.timestamp),
+    );
+    return posts.map((post) => ({
+        params: { slug: post.data.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { Content } = await render(post);
+---
+
+<MainLayout title={`${post.data.title} - The House App`}>
+    <link
+        slot="head"
+        rel="alternate"
+        type="application/rss+xml"
+        title="The House App Blog RSS"
+        href="https://the-house-app.com/blog/rss.xml"
+    />
+    <div class="blog">
+        <div class="header">
+            <h1>{data.title}</h1>
+            <div class="description">{data.description}</div>
+        </div>
+        <hr />
+        <div class="content">
+            <Content components={components} />
+        </div>
+        <!-- <ReleaseFooter v-if="post.type == 'release'" /> -->
+    </div>
+</MainLayout>
+
+<style lang="scss">
+    .blog {
+        width: 80vw;
+
+        .header {
+            margin-bottom: 1rem;
+            text-align: left;
+
+            .description {
+                color: var(--subtext-0);
+            }
+        }
+    }
+
+    hr {
+        width: 100%;
+    }
+</style>

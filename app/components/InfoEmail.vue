@@ -1,3 +1,0 @@
-<template>
-    <a class="text-link" href="mailto:info@origamisystems.org">info@origamisystems.org</a>
-</template>

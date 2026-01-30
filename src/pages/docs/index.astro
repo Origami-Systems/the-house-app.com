@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { LargeTitleText, CardGrid } from "@origami-systems/ui";
+
+const posts = await getCollection("docs");
+---
+
+<MainLayout title="Docs - The House App">
+    <LargeTitleText> Docs </LargeTitleText>
+    <CardGrid>
+        {
+            posts.map((a) => (
+                <article>
+                    <a href={`/docs/${a.data.slug}`} class="link">
+                        <div class="item">
+                            <div class="title">{a.data.title}</div>
+                            <div class="description">{a.data.description}</div>
+                        </div>
+                    </a>
+                </article>
+            ))
+        }
+    </CardGrid>
+</MainLayout>
+<style lang="scss">
+    .link {
+        display: grid;
+        flex: 1;
+
+        .item {
+            position: relative;
+            padding: 20px;
+            text-align: left;
+            border: var(--border);
+            border-radius: var(--border-radius);
+
+            .title {
+                color: var(--text-0);
+                font-weight: bold;
+                margin-bottom: 20px;
+                font-size: 1.2rem;
+            }
+
+            .description {
+                color: var(--subtext-0);
+            }
+        }
+    }
+</style>

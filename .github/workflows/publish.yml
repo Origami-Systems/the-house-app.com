@@ -1,46 +1,34 @@
 name: Build and publish site
 on:
-  workflow_dispatch:
+    workflow_dispatch:
 permissions:
-  contents: read
-  pages: write
-  packages: read
-  id-token: write
+    contents: read
+    pages: write
+    packages: read
+    id-token: write
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    group: "pages"
+    cancel-in-progress: false
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-      - run: corepack enable
-      - name: Setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 25
-      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
-      - name: Install dependencies
-        run: pnpm install
-      - name: Nuxt build
-        run: |
-          pnpm exec nuxt build --preset github_pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          static_site_generator: nuxt
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+            - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
+            - name: Install, build, and upload your site
+              uses: withastro/action@v5
+              with:
+                  node-version: 25
+                  package-manager: pnpm@latest
+                  build-cmd: pnpm run build
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4

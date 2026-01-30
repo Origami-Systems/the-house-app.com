@@ -1,0 +1,47 @@
+---
+import MainLayout from "~/layouts/MainLayout.astro";
+import { Card, LargeTitleText } from "@origami-systems/ui";
+import BugsAndFeatureRequests from "@/bugs-tracker/BugsAndFeatureRequests.vue";
+---
+
+<MainLayout title="Bug Tracker - The House App">
+    <LargeTitleText>Bug<br />Tracker</LargeTitleText>
+    <div class="bugs">
+        <Card>
+            <p>
+                Welcome to The House App bug tracker! Here, you can find a list
+                of known issues and bugs that have been reported by users. If
+                you encounter any problems while using the app, please check
+                this list to see if the issue has already been reported. If not,
+                feel free to report it so we can work on fixing it. Your
+                feedback is invaluable in helping us improve the app and provide
+                a better experience for all users.
+            </p>
+            <p>
+                For a comprehensive and up-to-date overview of reported bugs,
+                please visit our <a
+                    class="text-link"
+                    href="https://github.com/Origami-Systems/issues/issues"
+                    target="_blank"
+                >
+                    GitHub Issues page
+                </a>.
+            </p>
+        </Card>
+        <BugsAndFeatureRequests client:only="vue" />
+    </div>
+</MainLayout>
+
+<style lang="scss">
+    .bugs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        :global(.card) {
+            margin-bottom: 0px;
+            max-width: 700px;
+        }
+    }
+</style>

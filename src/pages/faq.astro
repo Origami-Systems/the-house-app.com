@@ -1,0 +1,48 @@
+---
+import MainLayout from "~/layouts/MainLayout.astro";
+import { LargeTitleText, DisclosureGroup } from "@origami-systems/ui";
+import { allQuestions } from "~/content/faq_questions";
+---
+
+<MainLayout title="FAQ - The House App">
+    <LargeTitleText>Frequently<br />Asked Questions</LargeTitleText>
+    <div class="items">
+        {
+            allQuestions.map((section) => (
+                <DisclosureGroup label={section.name} client:only="vue">
+                    <div class="faq-item">
+                        {section.questions.map((item) => (
+                            <>
+                                <h3 class="question">{item.q}</h3>
+                                <p class="answer">{item.a}</p>
+                            </>
+                        ))}
+                    </div>
+                </DisclosureGroup>
+            ))
+        }
+    </div>
+</MainLayout>
+
+<style lang="scss">
+    .items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 30px;
+        width: 80%;
+    }
+
+    .faq-item {
+        text-align: left;
+
+        .question {
+            color: var(--text-0);
+        }
+
+        .answer {
+            margin-left: 10px;
+            color: var(--text-1);
+        }
+    }
+</style>

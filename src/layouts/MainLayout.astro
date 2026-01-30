@@ -1,0 +1,35 @@
+---
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+import LocalNotifications from "@/LocalNotifications.vue";
+
+import "../styles/global.css";
+import "@origami-systems/ui/style.css";
+
+const {
+    title = "The House App",
+    description = "The House App is a cutting-edge tool designed to enrich the educational journey for students and teachers alike. It offers insights to track house-related activities and achievements, fostering engagement within the school community.",
+} = Astro.props;
+---
+
+<html lang="en" class="light">
+    <head>
+        <Head title={title} description={description} />
+
+        <slot name="head" />
+    </head>
+    <body>
+        <Header />
+        <main class="all">
+            <slot />
+        </main>
+        <Footer />
+        <LocalNotifications client:only="vue" />
+    </body>
+</html>

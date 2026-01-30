@@ -1,0 +1,16 @@
+---
+import { AppSubmitButton } from "@origami-systems/ui";
+import MainLayout from "~/layouts/MainLayout.astro";
+const { error } = Astro.props;
+---
+
+<MainLayout title="An Error Occurred">
+    <h1>An Error Occurred</h1>
+    <p>
+        Message: {error instanceof Error ? error.message : "Unknown error"}
+    </p>
+
+    <a href="/">
+        <AppSubmitButton> Back </AppSubmitButton>
+    </a>
+</MainLayout>

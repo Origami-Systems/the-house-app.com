@@ -1,0 +1,25 @@
+<svg width="264" height="264" viewBox="0 0 264 264" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_i_312_55)">
+<rect width="264" height="264" rx="58" fill="black"/>
+<rect x="2.5" y="2.5" width="259" height="259" rx="55.5" stroke="#C3EFFF" stroke-width="5"/>
+<rect x="60" y="60" width="48" height="48" fill="#006FFF"/>
+<rect x="60" y="108" width="48" height="48" fill="#93E2FF"/>
+<rect x="60" y="156" width="48" height="48" fill="white"/>
+<rect x="108" y="108" width="48" height="48" fill="#5EB7FF"/>
+<rect x="156" y="60" width="48" height="48" fill="#C3EFFF"/>
+<rect x="156" y="108" width="48" height="48" fill="#0092FB"/>
+<rect x="156" y="156" width="48" height="48" fill="#5400FB"/>
+</g>
+<defs>
+<filter id="filter0_i_312_55" x="-5" y="-5" width="269" height="269" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="8" operator="erode" in="SourceAlpha" result="effect1_innerShadow_312_55"/>
+<feOffset dx="-5" dy="-5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.329412 0 0 0 0 0 0 0 0 0 0.984314 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_312_55"/>
+</filter>
+</defs>
+</svg>

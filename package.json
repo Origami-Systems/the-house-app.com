@@ -1,50 +1,33 @@
 {
-    "name": "the-house-app-website",
-    "private": true,
+    "name": "the-house-app.com",
     "type": "module",
+    "version": "0.0.1",
     "scripts": {
-        "build": "nuxt build",
-        "dev": "nuxt dev",
-        "generate": "nuxt generate",
-        "preview": "nuxt preview",
-        "postinstall": "nuxt prepare",
-        "typecheck": "nuxt typecheck",
-        "prepare": "nuxt prepare"
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "typecheck": "astro check"
     },
     "dependencies": {
-        "@nuxt/content": "^3.11.0",
-        "@nuxtjs/color-mode": "^3.5.2",
-        "@nuxtjs/robots": "^5.6.7",
-        "@nuxtjs/sitemap": "^7.5.2",
-        "@origami-systems/nuxt-shared": "1.2.5",
-        "@pinia/nuxt": "^0.11.3",
-        "axios": "^1.13.2",
-        "better-sqlite3": "^12.6.2",
-        "nuxt": "^4.3.0",
-        "pinia": "^3.0.4",
-        "rss": "^1.2.2",
+        "@astrojs/check": "0.9.7-beta.1",
+        "@astrojs/mdx": "5.0.0-beta.2",
+        "@astrojs/rss": "4.0.15-beta.2",
+        "@astrojs/sitemap": "3.6.1-beta.2",
+        "@astrojs/vue": "6.0.0-beta.0",
+        "@origami-systems/ui": "^0.0.24",
+        "astro": "6.0.0-beta.5",
+        "sass": "^1.97.3",
+        "sharp": "^0.34.5",
         "vue": "^3.5.27"
     },
+    "private": true,
+    "peerDependencies": {
+        "typescript": "^5"
+    },
     "devDependencies": {
-        "@eslint/js": "^9.39.2",
-        "@nuxt/eslint": "^1.12.1",
-        "@types/rss": "^0.0.32",
-        "baseline-browser-mapping": "^2.9.17",
-        "eslint": "^9.39.2",
-        "eslint-plugin-vue": "^10.7.0",
-        "sass": "^1.97.3",
-        "typescript": "^5.9.3",
-        "typescript-eslint": "^8.53.1",
-        "vue-tsc": "^3.2.2"
+        "prettier": "3.8.1",
+        "prettier-plugin-astro": "0.14.1"
     },
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "@parcel/watcher",
-            "better-sqlite3",
-            "esbuild",
-            "sharp",
-            "unrs-resolver"
-        ]
-    },
-    "packageManager": "pnpm@10.28.0"
+    "packageManager": "pnpm@10.28.2"
 }

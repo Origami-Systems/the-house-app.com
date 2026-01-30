@@ -1,0 +1,104 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "~/layouts/MainLayout.astro";
+import { LargeTitleText, CardGrid, Badge } from "@origami-systems/ui";
+
+const unsortedPosts = await getCollection("blog");
+const posts = unsortedPosts.sort(
+    (a, b) => Number(b.data.timestamp) - Number(a.data.timestamp),
+);
+---
+
+<MainLayout title="Blog - The House App">
+    <link
+        slot="head"
+        rel="alternate"
+        type="application/rss+xml"
+        title="The House App Blog RSS"
+        href="https://the-house-app.com/blog/rss.xml"
+    />
+    <LargeTitleText> Blog </LargeTitleText>
+    <CardGrid>
+        {
+            posts.map(({ data }) => (
+                <article class="ignore-div">
+                    <a href={`/blog/${data.slug}`} class="link">
+                        <div class="item">
+                            <div class="title">{data.title}</div>
+                            <div class="description">{data.description}</div>
+                            <div class="extra">
+                                <Badge client:only="vue">
+                                    <span class="capitalize">{data.type}</span>
+                                </Badge>
+                                <div class="tags">
+                                    {data.tags.map((tag) => (
+                                        <div class="tag">{tag}</div>
+                                    ))}
+                                </div>
+                            </div>
+                            <time class="timestamp">
+                                {new Date(data.timestamp).toLocaleDateString()}
+                            </time>
+                        </div>
+                    </a>
+                </article>
+            ))
+        }
+    </CardGrid>
+</MainLayout>
+<style lang="scss">
+    .link {
+        display: grid;
+        flex: 1;
+
+        .item {
+            position: relative;
+            padding: 20px;
+            text-align: left;
+            border: var(--border);
+            border-radius: var(--border-radius);
+
+            .title {
+                color: var(--text-0);
+                font-weight: bold;
+                margin-bottom: 20px;
+                font-size: 1.2rem;
+            }
+
+            .description {
+                color: var(--subtext-0);
+            }
+
+            .extra {
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                // justify-content: flex-end;
+                align-items: center;
+                margin-top: 15px;
+                height: 1rem;
+
+                .tags {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    font-size: 0.9rem;
+                    margin-left: auto;
+
+                    .tag {
+                        color: var(--subtext-2);
+                    }
+                }
+            }
+
+            .timestamp {
+                position: absolute;
+                right: 15px;
+                top: 10px;
+                color: var(--subtext-1);
+                font-size: 0.8rem;
+            }
+        }
+    }
+</style>

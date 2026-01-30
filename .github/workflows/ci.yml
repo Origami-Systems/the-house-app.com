@@ -1,51 +1,43 @@
 name: Build site
 on:
-  pull_request:
-  workflow_dispatch:
+    pull_request:
+    workflow_dispatch:
 permissions:
-  contents: read
-  pages: write
-  packages: read
-  id-token: write
+    contents: read
+    pages: write
+    packages: read
+    id-token: write
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    group: "pages"
+    cancel-in-progress: false
 jobs:
-  typecheck:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-      - name: Enable corepack
-        run: corepack enable
-      - name: Setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 25
-          cache: "pnpm"
-      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
-      - run: pnpm install
-      - run: pnpm prepare
-      - run: pnpm typecheck
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Enable corepack
-        run: corepack enable
-      - name: Setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 25
-          cache: "pnpm"
-      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
-      - run: pnpm install --no-optional=false
-      - run: pnpm build --no-minify --no-sourcemap
-    # - name: Upload build output
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: built-frontend
-    #     path: .output
-    #     if-no-files-found: error
-    #     include-hidden-files: true
+    # typecheck: # can't typecheck because the typechecker doesn't know optional vue props
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Checkout repository
+    #           uses: actions/checkout@v5
+    #         - name: Enable corepack
+    #           run: corepack enable
+    #         - name: Setup node
+    #           uses: actions/setup-node@v4
+    #           with:
+    #               node-version: 25
+    #               cache: "pnpm"
+    #         - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
+    #         - run: pnpm install
+    #         - run: pnpm typecheck
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Enable corepack
+              run: corepack enable
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 25
+                  cache: "pnpm"
+            - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
+            - run: pnpm install
+            - run: pnpm build

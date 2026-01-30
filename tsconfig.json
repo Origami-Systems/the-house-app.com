@@ -1,17 +1,37 @@
 {
-    "files": [],
-    "references": [
-        {
-            "path": "./.nuxt/tsconfig.app.json"
+    "extends": "astro/tsconfigs/strict",
+    "include": [
+        ".astro/types.d.ts",
+        "**/*"
+    ],
+    "exclude": [
+        "dist"
+    ],
+    "compilerOptions": {
+        // Needed for TypeScript intellisense in the template inside Vue files
+        "jsx": "preserve",
+        "verbatimModuleSyntax": true,
+        "paths": {
+            "~/*": [
+                "./src/*"
+            ],
+            "@/*": [
+                "./src/components/*"
+            ],
+            "@layouts/*": [
+                "./src/layouts/*"
+            ],
+            "@utils/*": [
+                "./src/utils/*"
+            ],
+            "@assets/*": [
+                "./src/assets/*"
+            ]
         },
-        {
-            "path": "./.nuxt/tsconfig.server.json"
-        },
-        {
-            "path": "./.nuxt/tsconfig.shared.json"
-        },
-        {
-            "path": "./.nuxt/tsconfig.node.json"
-        }
-    ]
+        "plugins": [
+            {
+                "name": "@vue/typescript-plugin"
+            }
+        ]
+    }
 }
