@@ -15,7 +15,7 @@
         "@astrojs/rss": "4.0.15-beta.3",
         "@astrojs/sitemap": "3.6.1-beta.3",
         "@astrojs/vue": "6.0.0-beta.1",
-        "@origami-systems/ui": "^0.0.24",
+        "@origami-systems/ui": "^1.1.11",
         "astro": "6.0.0-beta.13",
         "sass": "^1.97.3",
         "sharp": "^0.34.5",
@@ -29,5 +29,5 @@
         "prettier": "3.8.1",
         "prettier-plugin-astro": "0.14.1"
     },
-    "packageManager": "pnpm@10.28.2"
+    "packageManager": "pnpm@10.30.1"
 }
