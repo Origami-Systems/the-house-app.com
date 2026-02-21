@@ -24,8 +24,8 @@ importers:
         specifier: 6.0.0-beta.1
         version: 6.0.0-beta.1(@types/node@25.0.10)(astro@6.0.0-beta.13(@types/node@25.0.10)(rollup@4.57.1)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))(sass@1.97.3)(vue@3.5.27(typescript@5.9.3))(yaml@2.8.2)
       '@origami-systems/ui':
-        specifier: ^1.1.11
-        version: 1.1.11(typescript@5.9.3)
+        specifier: ^1.2.1
+        version: 1.2.1(typescript@5.9.3)
       astro:
         specifier: 6.0.0-beta.13
         version: 6.0.0-beta.13(@types/node@25.0.10)(rollup@4.57.1)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
@@ -769,8 +769,8 @@ packages:
   '@mdx-js/mdx@3.1.1':
     resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
 
-  '@origami-systems/ui@1.1.11':
-    resolution: {integrity: sha512-Lndk2uAF7Sm9kGG8nK9EigVkQ97vcrkiuMQywTPe8y/JRKwSWkWiqutkTzZ4d7jSDy/BqLKa6Z2+BSdjRrHMVg==, tarball: https://npm.pkg.github.com/download/@origami-systems/ui/1.1.11/50d192b7b0b2b842aa86d0d8fdfff4c889e62beb}
+  '@origami-systems/ui@1.2.1':
+    resolution: {integrity: sha512-x4YL5b92zUOkS6ivQDtfdbTu7M9gL7pTCM+7qLNyx62WjBAGpgOUPlPZfkkywgVtMT1RdYEgvvNsHIxJdR4RZQ==, tarball: https://npm.pkg.github.com/download/@origami-systems/ui/1.2.1/fe58ce3a802f0359df093214247b87b59da6e8f5}
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -3347,7 +3347,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@origami-systems/ui@1.1.11(typescript@5.9.3)':
+  '@origami-systems/ui@1.2.1(typescript@5.9.3)':
     dependencies:
       lucide-vue-next: 0.563.0(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
