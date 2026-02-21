@@ -1,15 +1,15 @@
 ---
 import MainLayout from "~/layouts/MainLayout.astro";
-import { LargeTitleText, DisclosureGroup } from "@origami-systems/ui";
+import { Card, LargeTitleText, ExpandableGroup } from "@origami-systems/ui";
 import { allQuestions } from "~/content/faq_questions";
 ---
 
 <MainLayout title="FAQ - The House App">
     <LargeTitleText>Frequently<br />Asked Questions</LargeTitleText>
-    <div class="items">
+    <Card class="card">
         {
             allQuestions.map((section) => (
-                <DisclosureGroup label={section.name} client:only="vue">
+                <ExpandableGroup label={section.name} client:only="vue">
                     <div class="faq-item">
                         {section.questions.map((item) => (
                             <>
@@ -18,19 +18,15 @@ import { allQuestions } from "~/content/faq_questions";
                             </>
                         ))}
                     </div>
-                </DisclosureGroup>
+                </ExpandableGroup>
             ))
         }
-    </div>
+    </Card>
 </MainLayout>
 
 <style lang="scss">
-    .items {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-top: 30px;
-        width: 80%;
+    .card {
+        max-width: 80%;
     }
 
     .faq-item {
