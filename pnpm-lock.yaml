@@ -23,9 +23,12 @@ importers:
       '@astrojs/vue':
         specifier: 6.0.0-beta.1
         version: 6.0.0-beta.1(@types/node@25.0.10)(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))(sass@1.97.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)
+      '@lucide/astro':
+        specifier: ^0.575.0
+        version: 0.575.0(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))
       '@origami-systems/ui':
-        specifier: ^1.3.0
-        version: 1.3.0(typescript@5.9.3)
+        specifier: ^1.3.7
+        version: 1.3.7(typescript@5.9.3)
       astro:
         specifier: 6.0.0-beta.14
         version: 6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
@@ -766,11 +769,16 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
+  '@lucide/astro@0.575.0':
+    resolution: {integrity: sha512-hU47BbgApVR473CxSk6C4OBxqO0P91ZrY9uYvQB7xqW9f5mqmkz1RJ4jl2iK2LovntrrfAZix5ce+r7v2+2gHg==}
+    peerDependencies:
+      astro: ^4 || ^5
+
   '@mdx-js/mdx@3.1.1':
     resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
 
-  '@origami-systems/ui@1.3.0':
-    resolution: {integrity: sha512-jTli2CKSXrxnI+WQCxWXlYUPhco8Q2oXTBAlMmd0cH3mlEzbtU1KhmQoyrUsWSCOe/U4pwAR2O7MGCJb4VQH/g==, tarball: https://npm.pkg.github.com/download/@origami-systems/ui/1.3.0/271ee1020fc8783d06d7dad01bd8a136119240f8}
+  '@origami-systems/ui@1.3.7':
+    resolution: {integrity: sha512-TcjhM8aCwDYA4seouMsImxjONH/goVEmj6gqHwmIZ4s/1yns1r0iSdhBfhjXUvoMTKLAt6B0HIlfKjCB6zOY8g==, tarball: https://npm.pkg.github.com/download/@origami-systems/ui/1.3.7/74b0cca158046070301ebd62f37a3e90f7202cbf}
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -3316,6 +3324,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@lucide/astro@0.575.0(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))':
+    dependencies:
+      astro: 6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
+
   '@mdx-js/mdx@3.1.1':
     dependencies:
       '@types/estree': 1.0.8
@@ -3346,7 +3358,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@origami-systems/ui@1.3.0(typescript@5.9.3)':
+  '@origami-systems/ui@1.3.7(typescript@5.9.3)':
     dependencies:
       lucide-vue-next: 0.563.0(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)

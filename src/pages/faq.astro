@@ -1,44 +1,51 @@
 ---
 import MainLayout from "~/layouts/MainLayout.astro";
-import { Card, LargeTitleText, ExpandableGroup } from "@origami-systems/ui";
+import { Card, LargeTitleText } from "@origami-systems/ui";
 import { allQuestions } from "~/content/faq_questions";
+import { ChevronRight } from "@lucide/astro";
 ---
 
 <MainLayout title="FAQ - The House App">
     <LargeTitleText>Frequently<br />Asked Questions</LargeTitleText>
-    <Card class="card">
+    <Card class="faq-card">
         {
             allQuestions.map((section) => (
-                <ExpandableGroup label={section.name} client:only="vue">
-                    <div class="faq-item">
-                        {section.questions.map((item) => (
-                            <>
-                                <h3 class="question">{item.q}</h3>
-                                <p class="answer">{item.a}</p>
-                            </>
-                        ))}
+                <details name="faq-item" data-inline>
+                    <summary>
+                        <span>{section.name}</span>
+                        <ChevronRight />
+                    </summary>
+                    <div class="content">
+                        <div class="faq-item">
+                            {section.questions.map((i) => (
+                                <>
+                                    <h3 class="question">{i.q}</h3>
+                                    <p class="answer">{i.a}</p>
+                                </>
+                            ))}
+                        </div>
                     </div>
-                </ExpandableGroup>
+                </details>
             ))
         }
     </Card>
 </MainLayout>
 
-<style lang="scss">
-    .card {
+<style>
+    .faq-card {
         max-width: 80%;
     }
 
     .faq-item {
         text-align: left;
+    }
 
-        .question {
-            color: var(--text-0);
-        }
+    .faq-item .question {
+        color: var(--text-0);
+    }
 
-        .answer {
-            margin-left: 10px;
-            color: var(--text-1);
-        }
+    .faq-item .answer {
+        margin-left: 10px;
+        color: var(--text-1);
     }
 </style>

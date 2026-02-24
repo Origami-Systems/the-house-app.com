@@ -31,24 +31,24 @@ const { Content } = await render(post);
         title="The House App Blog RSS"
         href="https://the-house-app.com/blog/rss.xml"
     />
-    <div class="blog">
-        <div class="header">
+    <article class="blog">
+        <header>
             <h1>{data.title}</h1>
             <div class="description">{data.description}</div>
-        </div>
+        </header>
         <hr />
         <div class="content">
             <Content components={components} />
         </div>
         <!-- <ReleaseFooter v-if="post.type == 'release'" /> -->
-    </div>
+    </article>
 </MainLayout>
 
 <style lang="scss">
     .blog {
         width: 80vw;
 
-        .header {
+        header {
             margin-bottom: 1rem;
             text-align: left;
 
