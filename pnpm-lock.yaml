@@ -13,25 +13,25 @@ importers:
         version: 0.9.7-beta.1(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3)
       '@astrojs/mdx':
         specifier: 5.0.0-beta.8
-        version: 5.0.0-beta.8(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))
+        version: 5.0.0-beta.8(astro@6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))
       '@astrojs/rss':
-        specifier: 4.0.15-beta.3
-        version: 4.0.15-beta.3
+        specifier: 4.0.15-beta.4
+        version: 4.0.15-beta.4
       '@astrojs/sitemap':
         specifier: 3.6.1-beta.3
         version: 3.6.1-beta.3
       '@astrojs/vue':
         specifier: 6.0.0-beta.1
-        version: 6.0.0-beta.1(@types/node@25.0.10)(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))(sass@1.97.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)
+        version: 6.0.0-beta.1(@types/node@25.0.10)(astro@6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))(sass@1.97.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)
       '@lucide/astro':
         specifier: ^0.575.0
-        version: 0.575.0(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))
+        version: 0.575.0(astro@6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))
       '@origami-systems/ui':
         specifier: ^1.3.7
         version: 1.3.7(typescript@5.9.3)
       astro:
-        specifier: 6.0.0-beta.14
-        version: 6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
+        specifier: 6.0.0-beta.15
+        version: 6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
       sass:
         specifier: ^1.97.3
         version: 1.97.3
@@ -94,8 +94,8 @@ packages:
     resolution: {integrity: sha512-3snR85nTXnXvgmFJ43AacCQcylk+mpsiQ5Gmr9hcR5IrEA6+EvaYfaF9jlxZqJIZYey/9ubSRmaERtwDhV/FeA==}
     engines: {node: ^20.19.1 || >=22.12.0}
 
-  '@astrojs/rss@4.0.15-beta.3':
-    resolution: {integrity: sha512-GJSBEmX6ziCIY85ssTsvICpPRUovfVSkCd22yb7pYp52cnou16MmK1VYrQB8URW4ElIxTP631wI+ExkE/k5D3g==}
+  '@astrojs/rss@4.0.15-beta.4':
+    resolution: {integrity: sha512-BeVo8kgXu29HMYhmAX7MbEQXKEOUMga4XouYWAYLvtQMVnvgEtQhpAqxauljfCCQ1S2tRvKeu/fiZ6GAGxrtEQ==}
 
   '@astrojs/sitemap@3.6.1-beta.3':
     resolution: {integrity: sha512-DPILjSDo0BoITSLhs+8WoiLY7GFiiDNQkfb3+tSEyPd94i700jCdkM9jYZEZ6OrCSfHoBYzOaEgiZ1NTSA1/5Q==}
@@ -1256,8 +1256,8 @@ packages:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
 
-  astro@6.0.0-beta.14:
-    resolution: {integrity: sha512-WZQ414ACS3FZhcABw8Ovl0utZVtaMCICAYlJEPeKR/M34yA4/YPGl/CtWr3sFh10MqFW7JhjiWGxw4W5/s6FWg==}
+  astro@6.0.0-beta.15:
+    resolution: {integrity: sha512-ez8m2qIL5n2ahlXncGnjjk4hgQsESiPmSF0G0SLcdn4PUbzBXN2p9YlKBoFVQ/0PMXAa1ZcW4QkUdtBhGViqqw==}
     engines: {node: ^20.19.1 || >=22.12.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1267,9 +1267,6 @@ packages:
 
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
-
-  base-64@1.0.0:
-    resolution: {integrity: sha512-kwDPIFCGx0NZHog36dj+tHiwP4QMzsZ3AgMViUBKI0+V5n4U0ufTCUMhnQ04diaRI8EX/QcPfql7zlhZ7j4zgg==}
 
   baseline-browser-mapping@2.10.0:
     resolution: {integrity: sha512-lIyg0szRfYbiy67j9KN8IyeD7q7hcmqnJ1ddWmNt19ItGpNN64mnllmxUNFIOdOm6by97jlL6wfpTTJrmnjWAA==}
@@ -1431,10 +1428,6 @@ packages:
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
-
-  deterministic-object-hash@2.0.2:
-    resolution: {integrity: sha512-KxektNH63SrbfUyDiwXqRb1rLwKt33AmMv+5Nhsw1kqZ13SJBRTgZHtGbE+hH3a1mVW1cz+4pqSWVPAtLVXTzQ==}
-    engines: {node: '>=18'}
 
   devalue@5.6.3:
     resolution: {integrity: sha512-nc7XjUU/2Lb+SvEFVGcWLiKkzfw8+qHI7zn8WYXKkLMgfGSHbgCEaR6bJpev8Cm6Rmrb19Gfd/tZvGqx9is3wg==}
@@ -1973,6 +1966,9 @@ packages:
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
+
+  obug@2.1.1:
+    resolution: {integrity: sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ==}
 
   ofetch@1.5.1:
     resolution: {integrity: sha512-2W4oUZlVaqAPAil6FUg/difl6YhqhUR7x2eZY4bQCko22UXg3hptq9KLQdqFClV+Wu85UX7hNtdGTngi/1BxcA==}
@@ -2744,12 +2740,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@5.0.0-beta.8(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))':
+  '@astrojs/mdx@5.0.0-beta.8(astro@6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 7.0.0-beta.7
       '@mdx-js/mdx': 3.1.1
       acorn: 8.16.0
-      astro: 6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
+      astro: 6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
       es-module-lexer: 2.0.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -2767,7 +2763,7 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/rss@4.0.15-beta.3':
+  '@astrojs/rss@4.0.15-beta.4':
     dependencies:
       fast-xml-parser: 5.3.7
       piccolore: 0.1.3
@@ -2791,12 +2787,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vue@6.0.0-beta.1(@types/node@25.0.10)(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))(sass@1.97.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)':
+  '@astrojs/vue@6.0.0-beta.1(@types/node@25.0.10)(astro@6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))(sass@1.97.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)':
     dependencies:
       '@vitejs/plugin-vue': 6.0.4(vite@7.3.1(@types/node@25.0.10)(sass@1.97.3)(yaml@2.8.2))(vue@3.5.28(typescript@5.9.3))
       '@vitejs/plugin-vue-jsx': 5.1.4(vite@7.3.1(@types/node@25.0.10)(sass@1.97.3)(yaml@2.8.2))(vue@3.5.28(typescript@5.9.3))
       '@vue/compiler-sfc': 3.5.28
-      astro: 6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
+      astro: 6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
       vite: 7.3.1(@types/node@25.0.10)(sass@1.97.3)(yaml@2.8.2)
       vite-plugin-vue-devtools: 8.0.6(vite@7.3.1(@types/node@25.0.10)(sass@1.97.3)(yaml@2.8.2))(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)
@@ -3324,9 +3320,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/astro@0.575.0(astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))':
+  '@lucide/astro@0.575.0(astro@6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))':
     dependencies:
-      astro: 6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
+      astro: 6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
 
   '@mdx-js/mdx@3.1.1':
     dependencies:
@@ -3841,7 +3837,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro@6.0.0-beta.14(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2):
+  astro@6.0.0-beta.15(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2):
     dependencies:
       '@astrojs/compiler': 3.0.0-beta.1
       '@astrojs/internal-helpers': 0.8.0-beta.1
@@ -3858,8 +3854,6 @@ snapshots:
       common-ancestor-path: 2.0.0
       cookie: 1.1.1
       cssesc: 3.0.0
-      debug: 4.4.3
-      deterministic-object-hash: 2.0.2
       devalue: 5.6.3
       diff: 8.0.3
       dlv: 1.1.3
@@ -3876,6 +3870,7 @@ snapshots:
       magicast: 0.5.2
       mrmime: 2.0.1
       neotraverse: 0.6.18
+      obug: 2.1.1
       p-limit: 7.3.0
       p-queue: 9.1.0
       package-manager-detector: 1.6.0
@@ -3939,8 +3934,6 @@ snapshots:
   axobject-query@4.1.0: {}
 
   bail@2.0.2: {}
-
-  base-64@1.0.0: {}
 
   baseline-browser-mapping@2.10.0: {}
 
@@ -4070,10 +4063,6 @@ snapshots:
   destr@2.0.5: {}
 
   detect-libc@2.1.2: {}
-
-  deterministic-object-hash@2.0.2:
-    dependencies:
-      base-64: 1.0.0
 
   devalue@5.6.3: {}
 
@@ -4976,6 +4965,8 @@ snapshots:
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
+
+  obug@2.1.1: {}
 
   ofetch@1.5.1:
     dependencies:

@@ -27,4 +27,23 @@ const docs = defineCollection({
     })
 })
 
-export const collections = { blog, docs };
+const notifications = defineCollection({
+    schema: z.object({
+        notifications: z.array(z.object({
+            id: z.uuid(),
+            level: z.enum(['info', 'important', 'critical']),
+            dismissible: z.boolean(),
+            title: z.string(),
+            message: z.string(),
+            starts_at: z.date().optional(),
+            end_at: z.date().optional(),
+            link: z.object({
+                label: z.string(),
+                url: z.url(),
+
+            }).optional(),
+            priority: z.number().default(0),
+        }))
+    })
+})
+export const collections = { blog, docs, notifications };

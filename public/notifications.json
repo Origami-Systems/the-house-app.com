@@ -1,0 +1,4 @@
+{
+    "$schema": "../.astro/collections/notifications.schema.json",
+    "notifications": []
+}
