@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "scripts": {
         "dev": "astro dev",
+        "prod": "pnpm build && npx serve dist -l 4321",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
@@ -12,12 +13,12 @@
     "dependencies": {
         "@astrojs/check": "0.9.7-beta.1",
         "@astrojs/mdx": "5.0.0-beta.8",
-        "@astrojs/rss": "4.0.15-beta.3",
+        "@astrojs/rss": "4.0.15-beta.4",
         "@astrojs/sitemap": "3.6.1-beta.3",
         "@astrojs/vue": "6.0.0-beta.1",
         "@lucide/astro": "^0.575.0",
         "@origami-systems/ui": "^1.3.7",
-        "astro": "6.0.0-beta.14",
+        "astro": "6.0.0-beta.15",
         "sass": "^1.97.3",
         "sharp": "^0.34.5",
         "vue": "^3.5.28"
