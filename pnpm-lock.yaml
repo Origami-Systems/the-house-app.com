@@ -27,8 +27,8 @@ importers:
         specifier: ^0.575.0
         version: 0.575.0(astro@6.0.0-beta.20(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2))
       '@origami-systems/ui':
-        specifier: ^2.0.2
-        version: 2.0.2(lucide-vue-next@0.563.0(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))
+        specifier: ^2.1.1
+        version: 2.1.1(lucide-vue-next@0.563.0(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))
       astro:
         specifier: 6.0.0-beta.20
         version: 6.0.0-beta.20(@types/node@25.0.10)(rollup@4.59.0)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
@@ -621,8 +621,8 @@ packages:
   '@mdx-js/mdx@3.1.1':
     resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
 
-  '@origami-systems/ui@2.0.2':
-    resolution: {integrity: sha512-sZ9/Zd6YakS8jHvKwlZUGhOm4/tAa2uyZW2aGrhF1IO+E8224qCJjI1Qz2FSOhcRzgyGZEavLxJSLc0p++5NGw==, tarball: https://npm.pkg.github.com/download/@origami-systems/ui/2.0.2/5020446331081d3a33810d2de13e99a29f472081}
+  '@origami-systems/ui@2.1.1':
+    resolution: {integrity: sha512-KfzHHN35fE/LvRooX62+pmhoszZ4e5FwmRmfJXUN3hYAdNTS0i6NoMMAqpTlOcLI+5b7hu4weaOBn3K2XxiHjw==, tarball: https://npm.pkg.github.com/download/@origami-systems/ui/2.1.1/bae5be5def896be24c57895f19d421b271d2dbf7}
     peerDependencies:
       lucide-vue-next: ^0.563.0
       vue: ^3.5.29
@@ -3104,7 +3104,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@origami-systems/ui@2.0.2(lucide-vue-next@0.563.0(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))':
+  '@origami-systems/ui@2.1.1(lucide-vue-next@0.563.0(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))':
     dependencies:
       lucide-vue-next: 0.563.0(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
