@@ -11,17 +11,17 @@
         "typecheck": "astro check"
     },
     "dependencies": {
-        "@astrojs/check": "0.9.7-beta.1",
-        "@astrojs/mdx": "5.0.0-beta.12",
-        "@astrojs/rss": "4.0.15-beta.4",
-        "@astrojs/sitemap": "3.6.1-beta.3",
-        "@astrojs/vue": "6.0.0-beta.1",
+        "@astrojs/check": "0.9.7",
+        "@astrojs/mdx": "5.0.0",
+        "@astrojs/rss": "4.0.17",
+        "@astrojs/sitemap": "3.7.1",
+        "@astrojs/vue": "6.0.0",
         "@lucide/astro": "^0.575.0",
-        "@origami-systems/ui": "^2.1.1",
-        "astro": "6.0.0-beta.20",
-        "sass": "^1.97.3",
+        "@origami-systems/ui": "^2.4.0",
+        "astro": "6.0.4",
+        "sass": "^1.98.0",
         "sharp": "^0.34.5",
-        "vue": "^3.5.29"
+        "vue": "^3.5.30"
     },
     "private": true,
     "peerDependencies": {
@@ -31,5 +31,5 @@
         "prettier": "3.8.1",
         "prettier-plugin-astro": "0.14.1"
     },
-    "packageManager": "pnpm@10.30.1"
+    "packageManager": "pnpm@10.32.1"
 }
