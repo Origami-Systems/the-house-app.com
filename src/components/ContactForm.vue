@@ -1,25 +1,37 @@
 <template>
     <form @submit.prevent class="form">
-        <TextField label="Name" type="text" v-model="name" required placeholder="Enter your name" />
-        <TextField label="Email Address" type="email" v-model="email" required placeholder="Enter your email" />
-        <TextField label="Organization" type="text" v-model="organization" placeholder="Your company, school, or group"
-            required />
-        <WithLabel label="How did you hear about us?">
+        <label>
+            Name
+            <input type="text" v-model="name" required placeholder="Enter your name" autocomplete="name" />
+        </label>
+        <label>
+            Email Address
+            <input type="text" v-model="email" required placeholder="Enter your email" autocomplete="email" />
+        </label>
+        <label>
+            Organization
+            <input type="text" v-model="organization" placeholder="Your company, school, or group" required
+                autocomplete="organization" />
+        </label>
+        <label>
+            How did you hear about us?
             <Dropdown type="text" v-model="hear" :option-display="(a: string) => a"
                 :options="howDidYouHearAboutUsOptions" required />
-        </WithLabel>
-        <TextField v-if="hear === 'Other'" label="Please specify" type="text" v-model="howDidYouHearAboutUs" required
-            placeholder="Tell us where you heard about us" />
+        </label>
+        <label v-if="hear === 'Other'">
+            Please specify
+            <input type="text" v-model="howDidYouHearAboutUs" required placeholder="Tell us where you heard about us" />
+        </label>
         <TextArea label="What would you like to know more about? (optional)" v-model="question"
             placeholder="Tell us what interests you or any questions you have" class="text-area" />
-        <TextField v-model="hp_field" name="hp_field" autocomplete="off" tabindex="-1" style="display: none;" />
+        <input type="text" v-model="hp_field" name="hp_field" autocomplete="off" tabindex="-1" style="display: none;" />
         <AppSubmitButton type="submit" @click="submit" primary :disabled>Submit</AppSubmitButton>
     </form>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { TextField, TextArea, WithLabel, Dropdown, AppSubmitButton, useNotifications } from '@origami-systems/ui';
+import { TextArea, Dropdown, AppSubmitButton, useNotifications } from '@origami-systems/ui';
 import { SubmitContact } from '@utils/SubmitContact';
 
 const hp_field = ref('');

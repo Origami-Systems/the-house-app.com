@@ -1,6 +1,6 @@
 <template>
     <div class="settings">
-        <SearchField v-model="search" class="search" />
+        <input type="search" v-model="search" class="search" />
         <Dropdown :options="['Issues', 'Feature Requests']" :option-display="(a: string) => a" v-model="mode"
             class="mode" />
         <Dropdown :options="['Open', 'Closed']" :option-display="(a: string) => a" v-model="status" class="status"
@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import type { GitHubIssue } from '~/types/GitHubIssue';
 import { computed, onMounted, ref } from 'vue';
-import { SearchField, Dropdown, RoundedContainer } from '@origami-systems/ui';
+import { Dropdown, RoundedContainer } from '@origami-systems/ui';
 import BugItem from './BugItem.vue';
 import EnhancementItem from './EnhancementItem.vue';
 import { getEnhancements } from '@utils/GetEnhancements'
