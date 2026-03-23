@@ -17,7 +17,7 @@
         "@astrojs/rss": "4.0.17",
         "@astrojs/sitemap": "3.7.1",
         "@astrojs/vue": "6.0.1",
-        "@lucide/astro": "^0.575.0",
+        "@lucide/astro": "^1.0.1",
         "@origami-systems/ui": "^3.0.0",
         "astro": "6.0.8",
         "sass": "^1.98.0",

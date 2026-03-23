@@ -27,8 +27,8 @@ importers:
         specifier: 6.0.1
         version: 6.0.1(@types/node@25.0.10)(astro@6.0.8(@types/node@25.0.10)(rollup@4.59.0)(sass@1.98.0)(typescript@5.9.3)(yaml@2.8.2))(sass@1.98.0)(vue@3.5.30(typescript@5.9.3))(yaml@2.8.2)
       '@lucide/astro':
-        specifier: ^0.575.0
-        version: 0.575.0(astro@6.0.8(@types/node@25.0.10)(rollup@4.59.0)(sass@1.98.0)(typescript@5.9.3)(yaml@2.8.2))
+        specifier: ^1.0.1
+        version: 1.0.1(astro@6.0.8(@types/node@25.0.10)(rollup@4.59.0)(sass@1.98.0)(typescript@5.9.3)(yaml@2.8.2))
       '@origami-systems/ui':
         specifier: ^3.0.0
         version: 3.0.0(lucide-vue-next@0.563.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
@@ -686,8 +686,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@lucide/astro@0.575.0':
-    resolution: {integrity: sha512-hU47BbgApVR473CxSk6C4OBxqO0P91ZrY9uYvQB7xqW9f5mqmkz1RJ4jl2iK2LovntrrfAZix5ce+r7v2+2gHg==}
+  '@lucide/astro@1.0.1':
+    resolution: {integrity: sha512-pvsCSu/sSgoU+mpoPTHVxrK7iFeZ2j1aY0jJt0CO/Hugjk6yCrvUCeXYFzMbsS75oD8/+QuhaC5BZDQzKzj0mg==}
     peerDependencies:
       astro: ^4 || ^5
 
@@ -3206,7 +3206,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/astro@0.575.0(astro@6.0.8(@types/node@25.0.10)(rollup@4.59.0)(sass@1.98.0)(typescript@5.9.3)(yaml@2.8.2))':
+  '@lucide/astro@1.0.1(astro@6.0.8(@types/node@25.0.10)(rollup@4.59.0)(sass@1.98.0)(typescript@5.9.3)(yaml@2.8.2))':
     dependencies:
       astro: 6.0.8(@types/node@25.0.10)(rollup@4.59.0)(sass@1.98.0)(typescript@5.9.3)(yaml@2.8.2)
 
