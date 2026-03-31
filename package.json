@@ -13,16 +13,16 @@
     "dependencies": {
         "@astrojs/check": "0.9.8",
         "@astrojs/compiler-rs": "^0.1.6",
-        "@astrojs/mdx": "5.0.2",
-        "@astrojs/rss": "4.0.17",
-        "@astrojs/sitemap": "3.7.1",
+        "@astrojs/mdx": "5.0.3",
+        "@astrojs/rss": "4.0.18",
+        "@astrojs/sitemap": "3.7.2",
         "@astrojs/vue": "6.0.1",
         "@lucide/astro": "^1.0.1",
         "@origami-systems/ui": "^3.0.0",
-        "astro": "6.0.8",
+        "astro": "6.1.2",
         "sass": "^1.98.0",
         "sharp": "^0.34.5",
-        "vue": "^3.5.30"
+        "vue": "^3.5.31"
     },
     "private": true,
     "peerDependencies": {
