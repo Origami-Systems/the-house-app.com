@@ -1,6 +1,6 @@
 <template>
     <div class="settings">
-        <input type="search" v-model="search" class="search" />
+        <input type="search" v-model="search" class="search" placeholder="Search" />
         <Dropdown :options="['Issues', 'Feature Requests']" :option-display="(a: string) => a" v-model="mode"
             class="mode" />
         <Dropdown :options="['Open', 'Closed']" :option-display="(a: string) => a" v-model="status" class="status"
