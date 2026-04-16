@@ -6,7 +6,7 @@
         </label>
         <label>
             Email Address
-            <input type="text" v-model="email" required placeholder="Enter your email" autocomplete="email" />
+            <input type="email" v-model="email" required placeholder="Enter your email" autocomplete="email" />
         </label>
         <label>
             Organization
