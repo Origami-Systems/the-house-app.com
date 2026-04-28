@@ -11,15 +11,15 @@
         "typecheck": "astro check"
     },
     "dependencies": {
-        "@astrojs/check": "0.9.8",
-        "@astrojs/compiler-rs": "^0.1.9",
+        "@astrojs/check": "0.9.9",
+        "@astrojs/compiler-rs": "^0.1.10",
         "@astrojs/mdx": "5.0.4",
         "@astrojs/rss": "4.0.18",
         "@astrojs/sitemap": "3.7.2",
         "@astrojs/vue": "6.0.1",
         "@lucide/astro": "^1.9.0",
         "@origami-systems/ui": "^3.5.2",
-        "astro": "6.1.9",
+        "astro": "6.1.10",
         "sass": "^1.99.0",
         "sharp": "^0.34.5",
         "vue": "^3.5.33"
