@@ -10,9 +10,7 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
     site: "https://the-house-app.com",
     output: "static",
-    integrations: [vue(), sitemap(), mdx({
-        optimize: false, // allow for custom components https://github.com/withastro/astro/issues/14611
-    })],
+    integrations: [vue(), sitemap(), mdx()],
     experimental: {
         contentIntellisense: true,
         rustCompiler: true,
