@@ -15,11 +15,12 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v5
-            - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
+            - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES
+                  }}" >> .npmrc
             - name: Install, build, and upload your site
               uses: withastro/action@v5
               with:
-                  node-version: 25
+                  node-version: 26
                   package-manager: pnpm@10.32.1
                   build-cmd: pnpm run build
     deploy:
