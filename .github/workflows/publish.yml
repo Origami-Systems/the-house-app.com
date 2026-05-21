@@ -19,11 +19,12 @@ concurrency:
     cancel-in-progress: false
 jobs:
     build:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04-arm
         steps:
             - name: Checkout
               uses: actions/checkout@v5
-            - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES
+            - run:
+                  echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES
                   }}" >> .npmrc
             - name: Install, build, and upload your site
               uses: withastro/action@v5
@@ -33,7 +34,7 @@ jobs:
                   build-cmd: pnpm run build
     deploy:
         needs: build
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04-arm
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
