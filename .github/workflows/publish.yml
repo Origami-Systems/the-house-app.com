@@ -27,7 +27,7 @@ jobs:
                   echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES
                   }}" >> .npmrc
             - name: Install, build, and upload your site
-              uses: withastro/action@v5
+              uses: withastro/action@v6
               with:
                   node-version: 26
                   package-manager: pnpm@10.32.1
