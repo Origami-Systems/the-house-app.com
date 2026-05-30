@@ -14,9 +14,6 @@ importers:
       '@astrojs/compiler-rs':
         specifier: ^0.2.1
         version: 0.2.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
-      '@astrojs/markdown-satteri':
-        specifier: ^0.2.1
-        version: 0.2.1
       '@astrojs/mdx':
         specifier: 6.0.1
         version: 6.0.1(@astrojs/markdown-satteri@0.2.1)(astro@6.4.2(@types/node@25.0.10)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.4)(sass@1.99.0)(yaml@2.9.0))
@@ -2860,6 +2857,7 @@ snapshots:
       '@astrojs/internal-helpers': 0.10.0
       github-slugger: 2.0.0
       satteri: 0.6.3
+    optional: true
 
   '@astrojs/mdx@6.0.1(@astrojs/markdown-satteri@0.2.1)(astro@6.4.2(@types/node@25.0.10)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.4)(sass@1.99.0)(yaml@2.9.0))':
     dependencies:
@@ -5416,6 +5414,7 @@ snapshots:
       '@bruits/satteri-linux-x64-gnu': 0.6.3
       '@bruits/satteri-wasm32-wasi': 0.6.3
       '@bruits/satteri-win32-x64-msvc': 0.6.3
+    optional: true
 
   sax@1.6.0: {}
 
