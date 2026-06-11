@@ -1,36 +1,36 @@
 {
     "name": "the-house-app.com",
-    "type": "module",
     "version": "0.1.0",
+    "private": true,
+    "type": "module",
     "scripts": {
         "dev": "astro dev",
         "prod": "pnpm build && npx serve dist -l 4321",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "typecheck": "astro check"
+        "typecheck": "astro check",
+        "prepare": "vp config"
     },
     "dependencies": {
         "@astrojs/check": "0.9.9",
-        "@astrojs/compiler-rs": "^0.2.1",
-        "@astrojs/mdx": "6.0.1",
+        "@astrojs/compiler-rs": "^0.2.2",
+        "@astrojs/mdx": "6.0.3",
         "@astrojs/rss": "4.0.18",
         "@astrojs/sitemap": "3.7.3",
         "@astrojs/vue": "6.0.1",
         "@lucide/astro": "^1.16.0",
         "@origami-systems/ui": "^3.5.3",
-        "astro": "6.4.3",
+        "astro": "6.4.6",
         "sass": "^1.99.0",
         "sharp": "^0.34.5",
         "vue": "^3.5.34"
     },
-    "private": true,
+    "devDependencies": {
+        "vite-plus": "catalog:"
+    },
     "peerDependencies": {
         "typescript": "^5"
     },
-    "devDependencies": {
-        "prettier": "3.8.3",
-        "prettier-plugin-astro": "0.14.1"
-    },
-    "packageManager": "pnpm@10.32.1"
+    "packageManager": "pnpm@11.5.3"
 }

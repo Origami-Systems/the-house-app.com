@@ -1,76 +1,94 @@
 <template>
     <div class="settings">
         <input type="search" v-model="search" class="search" placeholder="Search" />
-        <Dropdown :options="['Issues', 'Feature Requests']" :option-display="(a: string) => a" v-model="mode"
+        <Dropdown
+            :options="['Issues', 'Feature Requests']"
+            :option-display="(a: string) => a"
+            v-model="mode"
             class="mode" />
-        <Dropdown :options="['Open', 'Closed']" :option-display="(a: string) => a" v-model="status" class="status"
+        <Dropdown
+            :options="['Open', 'Closed']"
+            :option-display="(a: string) => a"
+            v-model="status"
+            class="status"
             width="140px" />
     </div>
     <RoundedContainer v-if="mode === 'Issues'">
         <template #title>Known Issues</template>
-        <div v-if="filtered.length > 0" v-for="issue in filtered" :key="issue.id" class="left-aligned">
+        <div
+            v-if="filtered.length > 0"
+            v-for="issue in filtered"
+            :key="issue.id"
+            class="left-aligned">
             <BugItem :issue="issue" />
         </div>
         <div v-else class="left-aligned">
             <div class="container">
-                <span class="title">No known issues at this time. If you encounter any
-                    problems, please report them!</span>
+                <span class="title"
+                    >No known issues at this time. If you encounter any problems, please report
+                    them!</span
+                >
             </div>
         </div>
     </RoundedContainer>
     <RoundedContainer v-if="mode === 'Feature Requests'">
         <template #title>Enhancements and Feature Requests</template>
-        <div v-if="filtered.length > 0" v-for="enhancement in filtered" :key="enhancement.id" class="left-aligned">
+        <div
+            v-if="filtered.length > 0"
+            v-for="enhancement in filtered"
+            :key="enhancement.id"
+            class="left-aligned">
             <EnhancementItem :enhancement="enhancement" />
         </div>
         <div v-else class="left-aligned">
             <div class="container">
-                <span class="title">No known enhancements or feature requests at this time.
-                    If you have any ideas for new features, please let us
-                    know!</span>
+                <span class="title"
+                    >No known enhancements or feature requests at this time. If you have any ideas
+                    for new features, please let us know!</span
+                >
             </div>
         </div>
     </RoundedContainer>
 </template>
 
 <script setup lang="ts">
-import type { GitHubIssue } from '~/types/GitHubIssue';
-import { computed, onMounted, ref } from 'vue';
-import { Dropdown, RoundedContainer } from '@origami-systems/ui';
-import BugItem from './BugItem.vue';
-import EnhancementItem from './EnhancementItem.vue';
-import { getEnhancements } from '@utils/GetEnhancements'
-import { getIssues } from '@utils/GetIssues'
+import type { GitHubIssue } from "~/types/GitHubIssue";
+import { computed, onMounted, ref } from "vue";
+import { Dropdown, RoundedContainer } from "@origami-systems/ui";
+import BugItem from "./BugItem.vue";
+import EnhancementItem from "./EnhancementItem.vue";
+import { getEnhancements } from "@utils/GetEnhancements";
+import { getIssues } from "@utils/GetIssues";
 
-const mode = ref<'Issues' | 'Feature Requests'>('Issues');
-const status = ref<'Open' | 'Closed'>('Open');
-const search = ref<string>('');
+const mode = ref<"Issues" | "Feature Requests">("Issues");
+const status = ref<"Open" | "Closed">("Open");
+const search = ref<string>("");
 
 const issues = ref<GitHubIssue[]>([]);
 const enhancements = ref<GitHubIssue[]>([]);
 
 const filtered = computed<GitHubIssue[]>(() => {
     let result: GitHubIssue[] = [];
-    if (mode.value === 'Issues') {
+    if (mode.value === "Issues") {
         result = issues.value;
     } else {
         result = enhancements.value;
     }
 
-    result = result.filter(u => u.state == status.value.toLowerCase());
+    result = result.filter((u) => u.state == status.value.toLowerCase());
 
     if (search.value.trim() !== "") {
-        result = result.filter(u =>
-            u.title.toLowerCase().includes(search.value.toLowerCase().trim())
+        result = result.filter((u) =>
+            u.title.toLowerCase().includes(search.value.toLowerCase().trim()),
         );
     }
     return result;
-})
+});
 
 onMounted(() => {
-    getIssues().then(data => (issues.value = data))
-    getEnhancements().then(data => (enhancements.value = data))
-})
+    getIssues().then((data) => (issues.value = data));
+    getEnhancements().then((data) => (enhancements.value = data));
+});
 </script>
 
 <style scoped lang="scss">

@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 
 const props = defineProps<{
     to: string;
@@ -16,8 +16,8 @@ const props = defineProps<{
 const isActive = ref(false);
 
 onMounted(() => {
-    if (props.to === '/') {
-        isActive.value = window.location.pathname === '/';
+    if (props.to === "/") {
+        isActive.value = window.location.pathname === "/";
     } else {
         isActive.value = window.location.pathname.includes(props.to);
     }

@@ -2,18 +2,21 @@
     <a :href="enhancement.html_url" class="link">
         <div class="container">
             <span class="title">#{{ enhancement.number }}: {{ enhancement.title }}</span>
-            <span class="status-text capitalize" style="color: var(--always-white);"
-                :class="{ [enhancement.state]: true }">{{
-                    enhancement.state }}</span>
+            <span
+                class="status-text capitalize"
+                style="color: var(--always-white)"
+                :class="{ [enhancement.state]: true }"
+                >{{ enhancement.state }}</span
+            >
         </div>
     </a>
 </template>
 
 <script setup lang="ts">
-import type { GitHubIssue } from '~/types/GitHubIssue';
+import type { GitHubIssue } from "~/types/GitHubIssue";
 
 defineProps<{
-    enhancement: GitHubIssue,
+    enhancement: GitHubIssue;
 }>();
 </script>
 

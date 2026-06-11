@@ -1,4 +1,32 @@
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp
+allowBuilds:
+    "@parcel/watcher": true
+    esbuild: true
+    sharp: true
+catalog:
+    vite: npm:@voidzero-dev/vite-plus-core@latest
+    vitest: npm:@voidzero-dev/vite-plus-test@latest
+    vite-plus: latest
+minimumReleaseAgeExclude:
+    - "@astrojs/compiler-binding-darwin-arm64@0.2.2"
+    - "@astrojs/compiler-binding-darwin-x64@0.2.2"
+    - "@astrojs/compiler-binding-linux-arm64-gnu@0.2.2"
+    - "@astrojs/compiler-binding-linux-arm64-musl@0.2.2"
+    - "@astrojs/compiler-binding-linux-x64-gnu@0.2.2"
+    - "@astrojs/compiler-binding-linux-x64-musl@0.2.2"
+    - "@astrojs/compiler-binding-wasm32-wasi@0.2.2"
+    - "@astrojs/compiler-binding-win32-arm64-msvc@0.2.2"
+    - "@astrojs/compiler-binding-win32-x64-msvc@0.2.2"
+    - "@astrojs/compiler-binding@0.2.2"
+    - "@astrojs/compiler-rs@0.2.2"
+    - "@napi-rs/wasm-runtime@1.1.5"
+    - astro@6.4.6
+overrides:
+    vite: "catalog:"
+    vitest: "catalog:"
+peerDependencyRules:
+    allowAny:
+        - vite
+        - vitest
+    allowedVersions:
+        vite: "*"
+        vitest: "*"

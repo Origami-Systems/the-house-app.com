@@ -31,15 +31,11 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v6
-            - name: Enable corepack
-              run: corepack enable
-            - name: Setup node
-              uses: actions/setup-node@v6
+            - uses: voidzero-dev/setup-vp@v1
               with:
-                  node-version: 26
-                  cache: "pnpm"
-            - run:
-                  echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES
-                  }}" >> .npmrc
-            - run: pnpm install
-            - run: pnpm build
+                  node-version: "26"
+                  cache: true
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}
+            - run: vp install
+            - run: vpr build

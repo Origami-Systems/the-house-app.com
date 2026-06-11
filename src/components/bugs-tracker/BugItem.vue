@@ -2,17 +2,21 @@
     <a :href="issue.html_url" class="link">
         <div class="container">
             <span class="title">#{{ issue.number }}: {{ issue.title }}</span>
-            <span class="status-text capitalize" style="color: var(--always-white);" :class="{ [issue.state]: true }">{{
-                issue.state }}</span>
+            <span
+                class="status-text capitalize"
+                style="color: var(--always-white)"
+                :class="{ [issue.state]: true }"
+                >{{ issue.state }}</span
+            >
         </div>
     </a>
 </template>
 
 <script setup lang="ts">
-import type { GitHubIssue } from '~/types/GitHubIssue';
+import type { GitHubIssue } from "~/types/GitHubIssue";
 
 defineProps<{
-    issue: GitHubIssue,
+    issue: GitHubIssue;
 }>();
 </script>
 

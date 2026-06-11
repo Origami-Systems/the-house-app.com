@@ -1,32 +1,17 @@
 {
     "extends": "astro/tsconfigs/strict",
-    "include": [
-        ".astro/types.d.ts",
-        "**/*"
-    ],
-    "exclude": [
-        "dist"
-    ],
+    "include": [".astro/types.d.ts", "**/*"],
+    "exclude": ["dist"],
     "compilerOptions": {
         // Needed for TypeScript intellisense in the template inside Vue files
         "jsx": "preserve",
         "verbatimModuleSyntax": true,
         "paths": {
-            "~/*": [
-                "./src/*"
-            ],
-            "@/*": [
-                "./src/components/*"
-            ],
-            "@layouts/*": [
-                "./src/layouts/*"
-            ],
-            "@utils/*": [
-                "./src/utils/*"
-            ],
-            "@assets/*": [
-                "./src/assets/*"
-            ]
+            "~/*": ["./src/*"],
+            "@/*": ["./src/components/*"],
+            "@layouts/*": ["./src/layouts/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@assets/*": ["./src/assets/*"]
         },
         "plugins": [
             {
