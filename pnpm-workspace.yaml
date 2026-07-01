@@ -20,6 +20,10 @@ minimumReleaseAgeExclude:
     - "@astrojs/compiler-rs@0.2.2"
     - "@napi-rs/wasm-runtime@1.1.5"
     - astro@6.4.6
+    - "@astrojs/markdown-satteri@0.3.1"
+    - "@astrojs/mdx@7.0.0"
+    - "@astrojs/vue@7.0.0"
+    - astro@7.0.0
 overrides:
     vite: "catalog:"
     vitest: "catalog:"

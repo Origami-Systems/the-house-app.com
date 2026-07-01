@@ -13,7 +13,6 @@ export default defineConfig({
     integrations: [vue(), sitemap(), mdx()],
     experimental: {
         contentIntellisense: true,
-        rustCompiler: true,
     },
     prefetch: true,
 });
