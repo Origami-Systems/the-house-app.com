@@ -6,9 +6,8 @@ import TitleBarItem from "./TitleBarItem.vue";
 import faviconDark from "@assets/icons/dark/favicon.svg";
 import faviconLight from "@assets/icons/light/favicon.svg";
 ---
-
-<div class="title-bar">
-    <div class="left-window-controls">
+<nav id="title-bar">
+    <div class="left-controls">
         <a href="/" class="icon-link">
             <Image
                 src={faviconDark}
@@ -51,52 +50,51 @@ import faviconLight from "@assets/icons/light/favicon.svg";
             >
         </div>
     </div>
-    <div class="right-window-controls">
+    <div class="right-controls">
         <LocalSwitchThemes client:only="vue" />
     </div>
-</div>
+</nav>
 <div class="sidebar">
     <SideBarGroup client:only="vue" />
 </div>
 
-<style lang="scss">
-    .title-bar {
-        position: fixed;
-        top: env(safe-area-inset-top, 0);
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+<style is:global>
+#title-bar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        height: calc(55px + env(safe-area-inset-top, 0));
-        padding-top: env(safe-area-inset-top, 0);
+    height: var(--title-bar-height);
+    padding-top: 0;
 
-        background-color: var(--background-0);
-        border-bottom: var(--divider-thin);
-        z-index: 999;
-        transition: var(--transitions);
+    background-color: var(--background-0);
+    border-bottom: var(--divider-thin);
+    z-index: 999;
+    transition: var(--transitions);
+}
 
-        .left-window-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding-left: max(20px, env(safe-area-inset-left, 0));
-        }
+#title-bar .left-controls,
+#title-bar .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        .right-window-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding-right: max(20px, env(safe-area-inset-right, 0));
-        }
-    }
+#title-bar .left-controls {
+    padding-left: 20px;
+}
 
-    .tabs {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
+#title-bar .right-controls {
+    padding-right: 20px;
+}
+
+#title-bar .tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
     @media (max-width: 650px) {
         .tabs {
@@ -109,20 +107,22 @@ import faviconLight from "@assets/icons/light/favicon.svg";
             display: none;
         }
     }
-    .icon {
-        user-select: none;
-        vertical-align: middle;
-    }
 
-    .icon-dark {
-        display: none;
-    }
+#title-bar .icon {
+    user-select: none;
+    vertical-align: middle;
+}
 
-    :global(html.dark) .icon-light {
-        display: none;
-    }
+#title-bar .icon-dark {
+    display: none;
+}
 
-    :global(html.dark) .icon-dark {
-        display: inline;
-    }
+html.dark #title-bar .icon-light {
+    display: none;
+}
+
+html.dark #title-bar .icon-dark {
+    display: inline;
+}
+
 </style>

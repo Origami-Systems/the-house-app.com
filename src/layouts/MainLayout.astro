@@ -4,10 +4,10 @@ interface Props {
     description?: string;
 }
 
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
 import LocalNotifications from "@/LocalNotifications.vue";
+import TitleBar from "../components/navigation/TitleBar.astro";
 
 import "../styles/global.css";
 import "@origami-systems/ui/style.css";
@@ -25,11 +25,28 @@ const {
         <slot name="head" />
     </head>
     <body>
-        <Header />
-        <main class="all">
+        <header id="title-bar-layout-header">
+            <TitleBar>
+            </TitleBar>
+        </header>
+        <main id="title-bar-layout">
             <slot />
         </main>
         <Footer />
         <LocalNotifications client:only="vue" />
     </body>
 </html>
+
+<style is:global>
+#title-bar-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px 10px 10px;
+}
+
+#title-bar-layout-header {
+    margin-bottom: 10px;
+}
+</style>
