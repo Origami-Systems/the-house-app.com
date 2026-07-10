@@ -27,7 +27,7 @@ jobs:
     #         - run: pnpm install
     #         - run: pnpm typecheck
     build:
-        runs-on: ubuntu-24.04-arm
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
               uses: actions/checkout@v6
