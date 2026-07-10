@@ -6,6 +6,7 @@ import TitleBarItem from "./TitleBarItem.vue";
 import faviconDark from "@assets/icons/dark/favicon.svg";
 import faviconLight from "@assets/icons/light/favicon.svg";
 ---
+
 <nav id="title-bar">
     <div class="left-controls">
         <a href="/" class="icon-link">
@@ -59,42 +60,42 @@ import faviconLight from "@assets/icons/light/favicon.svg";
 </div>
 
 <style is:global>
-#title-bar {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    #title-bar {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    height: var(--title-bar-height);
-    padding-top: 0;
+        height: var(--title-bar-height);
+        padding-top: 0;
 
-    background-color: var(--background-0);
-    border-bottom: var(--divider-thin);
-    z-index: 999;
-    transition: var(--transitions);
-}
+        background-color: var(--background-0);
+        border-bottom: var(--divider-thin);
+        z-index: 999;
+        transition: var(--transitions);
+    }
 
-#title-bar .left-controls,
-#title-bar .right-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    #title-bar .left-controls,
+    #title-bar .right-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-#title-bar .left-controls {
-    padding-left: 20px;
-}
+    #title-bar .left-controls {
+        padding-left: 20px;
+    }
 
-#title-bar .right-controls {
-    padding-right: 20px;
-}
+    #title-bar .right-controls {
+        padding-right: 20px;
+    }
 
-#title-bar .tabs {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+    #title-bar .tabs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
     @media (max-width: 650px) {
         .tabs {
@@ -108,21 +109,20 @@ import faviconLight from "@assets/icons/light/favicon.svg";
         }
     }
 
-#title-bar .icon {
-    user-select: none;
-    vertical-align: middle;
-}
+    #title-bar .icon {
+        user-select: none;
+        vertical-align: middle;
+    }
 
-#title-bar .icon-dark {
-    display: none;
-}
+    #title-bar .icon-dark {
+        display: none;
+    }
 
-html.dark #title-bar .icon-light {
-    display: none;
-}
+    html.dark #title-bar .icon-light {
+        display: none;
+    }
 
-html.dark #title-bar .icon-dark {
-    display: inline;
-}
-
+    html.dark #title-bar .icon-dark {
+        display: inline;
+    }
 </style>

@@ -19,7 +19,7 @@
         "@astrojs/rss": "4.0.19",
         "@astrojs/sitemap": "3.7.3",
         "@astrojs/vue": "7.0.0",
-        "@lucide/astro": "^1.16.0",
+        "@lucide/astro": "^1.23.0",
         "@origami-systems/config": "^1.0.0",
         "@origami-systems/identity-ui": "^5.0.0",
         "@origami-systems/identity-ui-nuxt": "^3.0.0",
@@ -28,9 +28,12 @@
         "astro": "7.0.4",
         "sass": "^1.99.0",
         "sharp": "^0.34.5",
-        "vue": "^3.5.34"
+        "vue": "^3.5.39"
     },
     "devDependencies": {
+        "prettier": "3.9.4",
+        "prettier-plugin-astro": "0.14.1",
+        "vite": "catalog:",
         "vite-plus": "catalog:"
     },
     "peerDependencies": {

@@ -26,8 +26,7 @@ const {
     </head>
     <body>
         <header id="title-bar-layout-header">
-            <TitleBar>
-            </TitleBar>
+            <TitleBar />
         </header>
         <main id="title-bar-layout">
             <slot />
@@ -38,15 +37,15 @@ const {
 </html>
 
 <style is:global>
-#title-bar-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 10px 10px 10px;
-}
+    #title-bar-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 10px 10px 10px;
+    }
 
-#title-bar-layout-header {
-    margin-bottom: 10px;
-}
+    #title-bar-layout-header {
+        margin-bottom: 10px;
+    }
 </style>

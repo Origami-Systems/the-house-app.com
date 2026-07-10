@@ -36,7 +36,12 @@ const posts = unsortedPosts.sort(
                                     ))}
                                 </div>
                             </div>
-                            <time class="timestamp" datetime={new Date(data.timestamp).toISOString()}>
+                            <time
+                                class="timestamp"
+                                datetime={new Date(
+                                    data.timestamp,
+                                ).toISOString()}
+                            >
                                 {new Date(data.timestamp).toLocaleDateString()}
                             </time>
                         </div>
@@ -81,7 +86,6 @@ const posts = unsortedPosts.sort(
         margin-top: auto;
         padding-top: 20px;
         align-items: center;
-
     }
     .tags {
         display: flex;
@@ -90,7 +94,6 @@ const posts = unsortedPosts.sort(
         gap: 10px;
         font-size: 0.9rem;
         margin-left: auto;
-
     }
     .tag {
         color: var(--subtext-2);
