@@ -31,7 +31,7 @@ export const allQuestions: FAQAnswers[] = [
         ],
     },
     {
-        name: "Authentication / Accounts",
+        name: "Authentication & Accounts",
         questions: [
             {
                 q: "I can’t log in, what should I do?",
@@ -48,7 +48,7 @@ export const allQuestions: FAQAnswers[] = [
         ],
     },
     {
-        name: "Announcements / Notifications",
+        name: "Announcements & Notifications",
         questions: [
             {
                 q: "How do announcements work?",
@@ -74,7 +74,7 @@ export const allQuestions: FAQAnswers[] = [
         ],
     },
     {
-        name: "Games / Live Updates",
+        name: "Games & Live Updates",
         questions: [
             {
                 q: "How do games work in the app?",

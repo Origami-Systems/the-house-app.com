@@ -92,6 +92,10 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+.container {
+    text-align: center;
+}
+
 .settings {
     width: 100%;
     max-width: 700px;

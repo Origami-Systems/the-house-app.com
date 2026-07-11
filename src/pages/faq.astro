@@ -15,15 +15,13 @@ import { ChevronRight } from "@lucide/astro";
                         <span>{section.name}</span>
                         <ChevronRight />
                     </summary>
-                    <div class="content">
-                        <div class="faq-item">
-                            {section.questions.map((i) => (
-                                <>
-                                    <h3 class="question">{i.q}</h3>
-                                    <p class="answer">{i.a}</p>
-                                </>
-                            ))}
-                        </div>
+                    <div class="faq-item">
+                        {section.questions.map((i) => (
+                            <>
+                                <h3 class="question">{i.q}</h3>
+                                <p class="answer">{i.a}</p>
+                            </>
+                        ))}
                     </div>
                 </details>
             ))
