@@ -9,13 +9,16 @@ const { title, description } = Astro.props;
 ---
 
 <title>{title}</title>
+<meta charset="utf-8" />
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="publisher" content="OrigamiKing3612" />
-<meta
-    name="keywords"
-    content="The House App, The House App Desktop, The House App App"
-/>
+<meta name="publisher" content="Origami Systems" />
+<meta name="keywords" content="The House App" />
+<meta name="author" content="Origami Systems" />
+<meta name="application-name" content={title} />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content={title} />
 <meta
     name="theme-color"
     media="(prefers-color-scheme: light)"
@@ -42,10 +45,19 @@ const { title, description } = Astro.props;
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://the-house-app.com" />
+<meta property="og:image:alt" content={`${title} logo`} />
 <meta
     property="og:image"
-    content="https://the-house-app.com/icons/192x192.png"
+    content="https://the-house-app.com/icons/512x512.png"
 />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta
+    name="twitter:image"
+    content="https://the-house-app.com/icons/512x512.png"
+/>
+<meta name="twitter:image:alt" content={`${title} logo`} />
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />

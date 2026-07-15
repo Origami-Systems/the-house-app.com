@@ -25,14 +25,14 @@ import IconLight from "@assets/icons/light/icon.png";
     <div class="footer-right">
         <nav class="footer-columns">
             <div>
-                <h4>The House App</h4>
+                <p class="header">The House App</p>
                 <a href="/">Home</a>
                 <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
                 <a href="/blog">Blog</a>
             </div>
             <div>
-                <h4>Support</h4>
+                <p class="header">Support</p>
                 <!-- <a href="/about">About</a> -->
                 <a
                     href="https://status.origamisystems.org"
@@ -51,7 +51,7 @@ import IconLight from "@assets/icons/light/icon.png";
 <style lang="scss">
     .footer {
         margin-top: 6.5rem;
-        padding: 2rem;
+        padding: 1.5rem 2rem;
         border-top: var(--divider-thin);
         display: flex;
         justify-content: space-between;
@@ -86,11 +86,14 @@ import IconLight from "@assets/icons/light/icon.png";
                 gap: 5rem;
                 text-align: left;
 
-                h4 {
+                h6,
+                .header {
                     font-weight: bold;
                     font-size: 1rem;
+                    margin: 0;
                     margin-bottom: 0.5rem;
                     user-select: none;
+                    color: var(--text-0);
                 }
 
                 a {
@@ -160,7 +163,8 @@ import IconLight from "@assets/icons/light/icon.png";
                 gap: 0.5rem;
                 width: 100%;
 
-                h4 {
+                h6,
+                .header {
                     font-size: 1rem;
                 }
 

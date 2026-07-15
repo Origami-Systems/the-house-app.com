@@ -6,3 +6,9 @@
 .ignore-div {
     display: contents;
 }
+
+html {
+    transition:
+        background-color var(--transition-time) ease,
+        color var(--transition-time) ease;
+}
