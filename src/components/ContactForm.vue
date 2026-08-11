@@ -32,7 +32,7 @@
             <Dropdown
                 type="text"
                 v-model="hear"
-                :option-display="(a: string) => a"
+                :option-display="(a) => a"
                 :options="howDidYouHearAboutUsOptions"
                 required />
         </label>
@@ -81,14 +81,7 @@ const howDidYouHearAboutUs = ref("");
 const question = ref("");
 const notifications = useNotifications();
 
-const disabled = computed(
-    () =>
-        !name.value ||
-        !email.value ||
-        !organization.value ||
-        !hear.value ||
-        (hear.value === "Other" && !howDidYouHearAboutUs.value),
-);
+const disabled = computed(() => !name.value || !email.value || !organization.value || !hear.value);
 
 const submit = async (done: () => void) => {
     try {
@@ -127,12 +120,10 @@ const submit = async (done: () => void) => {
 };
 </script>
 
-<style lang="scss" scoped>
-.text-area {
-    :deep(label) {
-        text-align: left;
-        margin-bottom: 10px;
-    }
+<style scoped>
+.text-area :deep(label) {
+    text-align: left;
+    margin-bottom: 10px;
 }
 
 .form {

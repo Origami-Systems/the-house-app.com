@@ -44,17 +44,16 @@ const { Content } = await render(post);
     </article>
 </MainLayout>
 
-<style lang="scss">
+<style>
     .blog {
         width: 80vw;
+    }
+    .blog header {
+        margin-bottom: 1rem;
+        text-align: left;
 
-        header {
-            margin-bottom: 1rem;
-            text-align: left;
-
-            .description {
-                color: var(--subtext-0);
-            }
+        .description {
+            color: var(--subtext-0);
         }
     }
 

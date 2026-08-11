@@ -24,11 +24,9 @@ onMounted(() => {
 });
 </script>
 
-<style scoped lang="scss">
-.active {
-    :deep(p) {
-        color: var(--accent);
-    }
+<style scoped>
+.active :deep(p) {
+    color: var(--accent);
 }
 
 .title {
