@@ -1,6 +1,8 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
+import { Apps } from "@origami-systems/config";
+const appData = Apps.house;
 
 function formatDate(date: Date) {
     date.setUTCHours(0);
@@ -12,7 +14,7 @@ export const GET: APIRoute = async (context) => {
     const posts = unsortedPosts.sort((a, b) => Number(b.data.timestamp) - Number(a.data.timestamp));
 
     return rss({
-        title: "The House App",
+        title: appData.title,
         description: "Updates and news from The House App",
         site: (context.site as URL).href,
         items: posts.map(({ data }) => ({

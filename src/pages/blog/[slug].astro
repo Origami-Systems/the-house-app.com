@@ -23,7 +23,7 @@ const { data } = post;
 const { Content } = await render(post);
 ---
 
-<MainLayout title={`${post.data.title} - The House App`}>
+<MainLayout title={post.data.title}>
     <link
         slot="head"
         rel="alternate"

@@ -3,8 +3,8 @@ allowBuilds:
     esbuild: true
     sharp: true
 catalog:
-    vite: npm:@voidzero-dev/vite-plus-core@0.2.4
-    vite-plus: 0.2.4
+    vite: npm:@voidzero-dev/vite-plus-core@0.2.8
+    vite-plus: 0.2.8
 minimumReleaseAgeExclude:
     - "@origami-systems/*"
     - "@astrojs/check@0.9.10"

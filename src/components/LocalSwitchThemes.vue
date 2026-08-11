@@ -1,5 +1,5 @@
 <template>
-    <SwitchThemesButton @click="switchThemes" :colorMode="colorMode" />
+    <SwitchThemesButton @click="switchThemes" :colorMode />
 </template>
 
 <script setup lang="ts">

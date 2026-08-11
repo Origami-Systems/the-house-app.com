@@ -12,15 +12,12 @@ import TitleBar from "../components/navigation/TitleBar.astro";
 import "../styles/global.css";
 import "@origami-systems/ui/style.css";
 
-const {
-    title = "The House App",
-    description = "The House App is a cutting-edge tool designed to enrich the educational journey for students and teachers alike. It offers insights to track house-related activities and achievements, fostering engagement within the school community.",
-} = Astro.props;
+const { title } = Astro.props;
 ---
 
 <html lang="en" class="light">
     <head>
-        <Head title={title} description={description} />
+        <Head title={title} />
 
         <slot name="head" />
     </head>
