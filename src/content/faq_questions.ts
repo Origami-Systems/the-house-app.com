@@ -74,6 +74,43 @@ export const allQuestions: FAQAnswers[] = [
         ],
     },
     {
+        name: "Guest Users",
+        questions: [
+            {
+                q: "What is a guest user?",
+                a: "A guest user is a temporary account that can access your organization without creating a permanent account. Guests have their own account, can receive notifications, participate in games, comment on house points, and sign back in on the same device.",
+            },
+            {
+                q: "How do guests join?",
+                a: "Guests join by scanning an invitation QR code or opening an invitation link. Depending on the Guest Group settings, they can either choose a randomly generated name or enter their own name before joining.",
+            },
+            {
+                q: "What is a Guest Group?",
+                a: "A Guest Group is a collection of guest users that share the same settings. You can assign a Guest Group to a house, control whether guests can choose their own names, and manage all guests in the group together.",
+            },
+            {
+                q: "Can I limit who joins?",
+                a: "Yes. Invitations can have a maximum number of guests, an expiration date, and an optional expiration period for guest accounts after they join.",
+            },
+            {
+                q: "What are Guest Generations?",
+                a: "Guest Generations let you invalidate every guest account in a Guest Group at once. Rotating the generation immediately signs out all existing guests and requires them to rejoin using a current invitation.",
+            },
+            {
+                q: "Can guests be assigned to a house?",
+                a: "Yes. Guest Groups can be assigned to a house so guests can access house-specific announcements and other house features. If no house is assigned, guests behave like any other user without a house.",
+            },
+            {
+                q: "Can guests sign in again later?",
+                a: "Yes. Once a guest joins, they stay signed in on that device until their account expires, their Guest Group's generation is rotated, or they sign out. If they sign out they will need an invite to login again.",
+            },
+            {
+                q: "What happens to Group Users?",
+                a: "Group Users have been deprecated and will be disabled on November 28th, 2026. Existing Group Users will continue to work for now, but organizations should migrate to Guest Groups.",
+            },
+        ],
+    },
+    {
         name: "Games & Live Updates",
         questions: [
             {
@@ -149,7 +186,7 @@ export const allQuestions: FAQAnswers[] = [
             },
             {
                 q: "Does the app require an internet connection?",
-                a: "Yes, the App requires an internet connection to function properly.",
+                a: "Yes, the app requires an internet connection to function properly.",
             },
             {
                 q: "What devices does the app support?",

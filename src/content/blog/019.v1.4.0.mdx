@@ -1,0 +1,58 @@
+---
+title: v1.4.0 - Guests System
+version: 1.4.0
+type: release
+description: "Create a QR code for many people to join at once."
+timestamp: 2026-08-12T11:00:00.000Z
+slug: v1-4-0
+draft: false
+tags:
+    - changelog
+    - guests
+---
+
+This update focuses on the new Guests System, making it easier and more secure to invite temporary users to your organization. It also includes several improvements and bug fixes.
+
+## Guests System
+
+The new Guests System replaces the old Group Users with individual guest accounts. Admins can now create Guest Groups and generate invitation QR codes or links that allow multiple people to join at once. Guest Groups can optionally assign guests to a house, giving them access to house-specific announcements and other house features. If no house is assigned, guests work just like any other user without a house.
+
+Each invitation can be configured with:
+
+- A maximum number of guests that can join.
+- An expiration date for the invitation.
+- An optional expiration period for guest accounts after they join.
+- Whether guests can enter their own name or must use a randomly generated one.
+
+Joining is simple. Guests scan the QR code or open the invitation link, choose a generated name or enter their own (if allowed), and they're immediately signed in.
+
+Unlike the previous Group Users feature, every guest receives their own individual account. This means guests can:
+
+- Receive notifications.
+- Cheer during games.
+- Comment on house points.
+- Sign back in on the same device without needing to scan the QR code again.
+
+### Guest Generations
+
+Each guest is part of a generation. A new generation can be created on a group to invalidate every guest account. Rotating a group's generation immediately signs out existing guests and prevents them from accessing the organization again unless they rejoin using a current invitation. This is useful for events and temporary visitors.
+
+### Group Users Deprecation
+
+The previous Group Users feature has been **deprecated** and will be **disabled on November 28th, 2026**. If you have any group users you should start migrating them to Guests.
+
+## Improvements
+
+- Added the new Guests System for managing temporary users.
+- Added Guest Generations for quickly revoking guest access to an entire group.
+- Guest invitations can now be shared using either a QR code or a direct link.
+- The house motto text has been moved to be more noticeable on the house page.
+
+## Bug Fixes
+
+- Fixed the Quick Add users page not working.
+- Fixed enabling and disabling notifications not working.
+
+## Bugs and Feedback
+
+As always, if you encounter any bugs or have suggestions for improving The House App, we'd love to hear from you. You can submit feedback from the **Account** page.
