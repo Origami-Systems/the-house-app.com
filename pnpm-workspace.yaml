@@ -5,11 +5,14 @@ allowBuilds:
 catalog:
     vite: npm:@voidzero-dev/vite-plus-core@0.2.8
     vite-plus: 0.2.8
+
+minimumReleaseAge: 2880
+
 minimumReleaseAgeExclude:
     - "@origami-systems/*"
     - "@astrojs/check@0.9.10"
     - "@astrojs/mdx@7.0.4"
-    - astro@7.1.4
+    - astro@7.2.2
     - "@astrojs/compiler-binding-darwin-arm64@0.4.0"
     - "@astrojs/compiler-binding-darwin-x64@0.4.0"
     - "@astrojs/compiler-binding-linux-arm64-gnu@0.4.0"
