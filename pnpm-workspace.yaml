@@ -3,27 +3,15 @@ allowBuilds:
     esbuild: true
     sharp: true
 catalog:
-    vite: npm:@voidzero-dev/vite-plus-core@0.2.8
-    vite-plus: 0.2.8
+    vite: npm:@voidzero-dev/vite-plus-core@0.2.9
+    vite-plus: 0.2.9
 
 minimumReleaseAge: 2880
 
 minimumReleaseAgeExclude:
     - "@origami-systems/*"
-    - "@astrojs/check@0.9.10"
-    - "@astrojs/mdx@7.0.4"
-    - astro@7.2.2
-    - "@astrojs/compiler-binding-darwin-arm64@0.4.0"
-    - "@astrojs/compiler-binding-darwin-x64@0.4.0"
-    - "@astrojs/compiler-binding-linux-arm64-gnu@0.4.0"
-    - "@astrojs/compiler-binding-linux-arm64-musl@0.4.0"
-    - "@astrojs/compiler-binding-linux-x64-gnu@0.4.0"
-    - "@astrojs/compiler-binding-linux-x64-musl@0.4.0"
-    - "@astrojs/compiler-binding-wasm32-wasi@0.4.0"
-    - "@astrojs/compiler-binding-win32-arm64-msvc@0.4.0"
-    - "@astrojs/compiler-binding-win32-x64-msvc@0.4.0"
-    - "@astrojs/compiler-binding@0.4.0"
-    - "@astrojs/compiler-rs@0.4.0"
+    - "@astrojs/*"
+    - astro
 overrides:
     vite: "catalog:"
 peerDependencyRules:
