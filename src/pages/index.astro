@@ -1,192 +1,384 @@
 ---
 import { Image } from "astro:assets";
-import { Card } from "@origami-systems/ui";
+import { AppSubmitButton } from "@origami-systems/ui/components";
 import MainLayout from "~/layouts/MainLayout.astro";
-import InfoEmail from "@/InfoEmail.astro";
+import FeatureGrid from "~/components/index/FeatureGrid.astro";
+import StandingsPreview from "~/components/index/StandingsPreview.astro";
 import wordmarkDark from "@assets/icons/dark/wordmark.png";
 import wordmarkLight from "@assets/icons/light/wordmark.png";
 ---
 
-<MainLayout>
-    <div id="index">
-        <section class="intro">
-            <div class="logo">
+<MainLayout title="The House App">
+    <section class="hero">
+        <div class="hero-copy">
+            <div class="wordmark">
                 <Image
                     src={wordmarkDark}
-                    alt="The House App Logo"
-                    class="icon icon-dark"
+                    alt="The House App"
+                    class="brand brand-dark"
                     loading="eager"
                     fetchpriority="high"
                 />
                 <Image
                     src={wordmarkLight}
-                    alt="The House App Logo"
-                    class="icon icon-light"
+                    alt="The House App"
+                    class="brand brand-light"
                     loading="eager"
                     fetchpriority="high"
                 />
             </div>
-
-            <h1 class="tagline">
-                Building community through friendly competition
-            </h1>
-        </section>
-        <div class="index-card">
-            <Card title="About the House System">
-                <section class="about-section">
-                    <p>
-                        Originating in British Commonwealth boarding schools,
-                        the house system has evolved into a cornerstone of
-                        educational institutions worldwide. It not only provides
-                        organizational structure but also cultivates leadership
-                        and community among students.
-                    </p>
-                </section>
-            </Card>
+            <p class="eyebrow">Your whole house system, in one place</p>
+            <h1>Give every point a purpose.</h1>
+            <p class="hero-description">
+                Bring houses, points, events, and announcements together so
+                students can see where they stand and staff can keep the
+                momentum going.
+            </p>
+            <div class="actions">
+                <a href="https://app.the-house-app.com/example">
+                    <AppSubmitButton primary>
+                        Explore an Example
+                    </AppSubmitButton>
+                </a>
+                <a href="/contact">
+                    <AppSubmitButton> Talk to us </AppSubmitButton>
+                </a>
+            </div>
+            <p class="login-note">
+                Already use The House App?
+                <a href="https://app.the-house-app.com"> Log in </a>.
+            </p>
         </div>
-        <div class="index-card">
-            <Card title="About The App">
-                <section class="about-section">
-                    <p>
-                        The House App is a cutting-edge tool designed to enrich
-                        the educational journey for students and teachers alike.
-                        It offers insights to track house-related activities and
-                        achievements, fostering engagement within the school
-                        community. There is also a <a
-                            class="text-link"
-                            href="https://app.the-house-app.com/example"
-                            target="_blank">full example of the app</a
-                        >.
-                    </p>
-                </section>
-            </Card>
+
+        <StandingsPreview />
+    </section>
+
+    <section class="section intro">
+        <p class="kicker">Built for the way your community works</p>
+        <h2>Keep the competition friendly and the progress visible.</h2>
+        <p>
+            The House App gives students a reason to take part and gives staff
+            simple tools to recognize it. Set up the houses your way, then run
+            the day-to-day from one shared home.
+        </p>
+    </section>
+
+    <FeatureGrid />
+
+    <section class="section how">
+        <div class="section-heading">
+            <div>
+                <p class="kicker">Simple to get started</p><h2>
+                    Bring your house system online.
+                </h2>
+            </div><p>
+                Start with the structure you already know. We give your
+                community one clear place to follow it.
+            </p>
         </div>
-        <div class="index-card">
-            <Card title="Key Features">
-                <section class="key-features">
-                    <ul>
-                        <li class="list-item">
-                            <strong>Customizable Houses:</strong> Tailor the app to
-                            reflect your school’s unique culture by creating and customizing
-                            house names, colors, and even adjusting the number of
-                            houses.
-                        </li>
-                        <li class="list-item">
-                            <strong>Instant Recognition:</strong> Deans can effortlessly
-                            award points to deserving students via the app, ensuring
-                            prompt acknowledgment of their efforts.
-                        </li>
-                        <li class="list-item">
-                            <strong>Announcements:</strong> Administrators can broadcast
-                            crucial announcements to all users, fostering effective
-                            communication and transparency.
-                        </li>
-                        <li class="list-item">
-                            <strong>Calendar:</strong> Administrators can create a
-                            calendar for students, leaders, and/or deans. This system
-                            allows for even more communication.
-                        </li>
-                        <li class="list-item">
-                            <strong>Not Just for Schools:</strong> Any type of organization
-                            can use the app, it may even contain customized features
-                            to that organization.
-                        </li>
-                    </ul>
-                </section>
-            </Card>
+        <ol class="steps">
+            <li>
+                <span>01</span><strong>Set up your houses</strong><p>
+                    Add names, colors, people, and roles.
+                </p>
+            </li>
+            <li>
+                <span>02</span><strong>Invite your community</strong><p>
+                    Give staff and students the right access.
+                </p>
+            </li>
+            <li>
+                <span>03</span><strong>Start the competition</strong><p>
+                    Award points and watch the standings move.
+                </p>
+            </li>
+        </ol>
+    </section>
+
+    <section class="cta">
+        <div>
+            <p class="kicker">See it in action</p><h2>
+                Take a look around before you decide.
+            </h2><p>
+                Open the example organization to explore the experience for
+                yourself, or get in touch to talk about your school.
+            </p>
         </div>
-        <div class="index-card">
-            <Card title="More Info">
-                <section>
-                    <p>
-                        If you would like more details, please reach out by
-                        email at
-                        <InfoEmail />.
-                    </p>
-                </section>
-            </Card>
+        <div class="actions">
+            <a href="https://app.the-house-app.com/example">
+                <AppSubmitButton primary> Explore an Example</AppSubmitButton>
+            </a>
+            <a href="/contact">
+                <AppSubmitButton> Contact us </AppSubmitButton>
+            </a>
         </div>
-        <div class="index-card">
-            <Card title="Ready to Use the App?">
-                <section class="login-section">
-                    <p>
-                        If you're part of a school or organization using The
-                        House App, you can <a
-                            class="text-link"
-                            href="https://app.the-house-app.com"
-                            >log in
-                        </a>.
-                    </p>
-                </section>
-            </Card>
-        </div>
-    </div>
-</MainLayout>
-<style lang="scss">
-    #index {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        max-width: 100%;
-    }
-    .logo {
-        img {
-            height: auto;
-            max-width: 400px;
-        }
-        user-select: none;
-    }
+    </section>
 
-    .icon {
-        max-width: 400px;
-    }
-
-    .icon-dark {
-        display: none;
-    }
-
-    :global(html.dark) .icon-light {
-        display: none;
-    }
-
-    :global(html.dark) .icon-dark {
-        display: inline;
-    }
-
-    .intro {
-        max-width: 80%;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
-        justify-content: space-evenly;
-        margin: 10em;
-    }
-
-    .index-card {
-        display: contents;
-
-        :global(.card) {
-            max-width: 80%;
-            width: 100%;
-            text-align: left;
-        }
-    }
-
-    @media (max-width: 750px) {
-        .intro {
+    <style>
+        :global(main) {
+            width: min(1180px, 100%);
+            display: flex;
             flex-direction: column;
-            margin: 5em;
-
-            .logo {
-                margin-bottom: 2em;
-
-                img {
-                    width: 100%;
-                }
+            gap: 7rem;
+            padding-top: clamp(2.5rem, 6vw, 5.5rem);
+        }
+        h1 {
+            max-width: unset;
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.95fr);
+            align-items: center;
+            gap: clamp(3rem, 7vw, 7rem);
+            min-height: 620px;
+        }
+        .hero-copy {
+            padding-left: 20px;
+        }
+        .wordmark {
+            width: min(250px, 70%);
+            margin-bottom: 2.5rem;
+        }
+        .brand {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .brand-dark {
+            display: none;
+        }
+        :global(html.dark) .brand-light {
+            display: none;
+        }
+        :global(html.dark) .brand-dark {
+            display: block;
+        }
+        .eyebrow,
+        .kicker {
+            margin: 0 0 0.8rem;
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 750;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+        h1 {
+            max-width: 650px;
+            margin: 0;
+            font-size: clamp(3.4rem, 7vw, 6.2rem);
+            letter-spacing: -0.075em;
+            line-height: 0.92;
+        }
+        .hero-description {
+            max-width: 610px;
+            margin: 1.6rem 0 0;
+            color: var(--subtext-0);
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            line-height: 1.65;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+        .login-note {
+            margin: 1rem 0 0;
+            color: var(--subtext-0);
+            font-size: 0.94rem;
+        }
+        .login-note a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .feature-icon {
+            display: grid;
+            place-items: center;
+            color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 12%, transparent);
+            font-style: normal;
+        }
+        .section {
+            width: min(1000px, 100%);
+            margin-inline: auto;
+        }
+        .intro {
+            text-align: center;
+        }
+        h2 {
+            margin: 0;
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            line-height: 1.05;
+            letter-spacing: -0.055em;
+        }
+        .intro h2 {
+            max-width: 850px;
+            margin-inline: auto;
+        }
+        .intro > p:last-child {
+            max-width: 720px;
+            margin: 1.4rem auto 0;
+            color: var(--subtext-0);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        .section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(250px, 0.6fr);
+            align-items: end;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .section-heading > p {
+            margin: 0;
+            color: var(--subtext-0);
+            line-height: 1.65;
+        }
+        .steps {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+        .steps li {
+            display: flex;
+            flex-direction: column;
+            border-top: 2px solid var(--background-1);
+            padding: 1.4rem 0.4rem 0;
+        }
+        .steps li > span {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+        .steps strong {
+            margin-top: 2rem;
+            font-size: 1.18rem;
+        }
+        .steps p {
+            margin: 0.5rem 0 0;
+            color: var(--subtext-0);
+            line-height: 1.5;
+        }
+        .cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            border: var(--border);
+            border-radius: calc(var(--border-radius) + 6px);
+            padding: clamp(2rem, 5vw, 4rem);
+        }
+        .cta h2 {
+            max-width: 700px;
+            font-size: clamp(2rem, 4.5vw, 3.7rem);
+        }
+        .cta p:last-child {
+            max-width: 680px;
+            color: var(--subtext-0);
+            line-height: 1.65;
+        }
+        .cta .actions {
+            flex-direction: column;
+            min-width: 190px;
+            margin-top: 0;
+        }
+        @media (max-width: 850px) {
+            #index {
+                gap: 5rem;
+            }
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            .hero-copy {
+                text-align: center;
+                padding-left: 0;
+            }
+            .wordmark,
+            .hero-description {
+                margin-inline: auto;
+            }
+            .hero .actions {
+                justify-content: center;
+            }
+            .product-preview {
+                width: min(520px, calc(100% - 14px));
+                margin-inline: auto;
+            }
+            .section-heading {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cta .actions {
+                flex-direction: row;
             }
         }
-    }
-</style>
+        @media (max-width: 650px) {
+            #index {
+                gap: 4.5rem;
+                padding-top: 2.5rem;
+            }
+            h1 {
+                font-size: clamp(3.2rem, 16vw, 4.8rem);
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature,
+            .feature.wide {
+                grid-column: auto;
+                min-height: 250px;
+                display: flex;
+                align-items: stretch;
+            }
+            .mini-points,
+            .calendar {
+                margin-top: 1.5rem;
+            }
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .steps strong {
+                margin-top: 1rem;
+            }
+            .cta .actions {
+                width: 100%;
+            }
+            .cta .actions a {
+                flex: 1;
+            }
+        }
+        @media (max-width: 430px) {
+            .actions,
+            .cta .actions {
+                flex-direction: column;
+            }
+            .actions a {
+                width: 100%;
+            }
+            .product-preview {
+                padding: 1rem;
+            }
+            .standing-row {
+                grid-template-columns: 24px minmax(0, 1fr) auto;
+                gap: 0.55rem;
+                padding-inline: 0.7rem;
+            }
+            .standing-row::before {
+                margin-left: -0.7rem;
+            }
+            .preview-footer span:last-child {
+                display: none;
+            }
+        }
+    </style>
+</MainLayout>

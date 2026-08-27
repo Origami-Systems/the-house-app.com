@@ -1,0 +1,133 @@
+<div class="product-preview" aria-label="Example house standings">
+    <div class="preview-header">
+        <span>Live standings</span>
+        <strong>House Cup</strong>
+    </div>
+    <div class="standings-list">
+        <div class="standing-row light-blue">
+            <span class="place">1</span>
+            <strong>Light Blue House</strong>
+            <strong class="points">1,250</strong>
+        </div>
+        <div class="standing-row blue">
+            <span class="place">2</span>
+            <strong>Blue House</strong>
+            <strong class="points">1,180</strong>
+        </div>
+        <div class="standing-row orange">
+            <span class="place">3</span><strong>Orange House</strong>
+            <strong class="points">1,045</strong>
+        </div>
+        <div class="standing-row purple">
+            <span class="place">4</span><strong>Purple House</strong>
+            <strong class="points">980</strong>
+        </div>
+    </div>
+    <div class="preview-footer">
+        <span>Recent point</span><strong>House Spirit</strong>
+        <span>+10 to Light Blue House</span>
+    </div>
+</div>
+
+<style>
+    .product-preview {
+        position: relative;
+        overflow: hidden;
+        border: var(--border);
+        border-radius: calc(var(--border-radius) + 6px);
+        background: var(--card-background);
+        padding: 1.4rem;
+        transition: var(--transitions);
+    }
+    .preview-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        padding: 0.3rem 0.2rem 1.2rem;
+    }
+    .preview-header span,
+    .preview-footer span {
+        color: var(--subtext-0);
+        font-size: 0.8rem;
+    }
+    .preview-header strong {
+        font-size: 1.3rem;
+    }
+    .standings-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+    .standing-row {
+        --house-color: var(--accent);
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 0.75rem;
+        min-height: 58px;
+        overflow: hidden;
+        border: 1px solid
+            color-mix(in srgb, var(--house-color) 70%, var(--text-1));
+        /* border-radius: 14px; */
+        background: color-mix(
+            in srgb,
+            var(--house-color) 18%,
+            var(--background-0)
+        );
+        padding: 0.75rem 0.9rem;
+    }
+    .standing-row::before {
+        content: "";
+        grid-column: 1;
+        grid-row: 1;
+        width: 8px;
+        height: calc(100% + 1.5rem);
+        margin-left: -0.9rem;
+        background: var(--house-color);
+    }
+    .standing-row .place {
+        grid-column: 1;
+        grid-row: 1;
+        margin-left: 0.45rem;
+        color: var(--subtext-0);
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-align: center;
+    }
+    .standing-row > strong:not(.points) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .points {
+        font-variant-numeric: tabular-nums;
+    }
+    .light-blue {
+        --house-color: var(--color-light-blue);
+    }
+    .blue {
+        --house-color: var(--color-blue);
+    }
+    .orange {
+        --house-color: var(--color-orange);
+    }
+    .purple {
+        --house-color: var(--color-purple);
+    }
+    .preview-footer {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.15rem 1rem;
+        margin-top: 1.2rem;
+        border-top: var(--divider-thin);
+        padding: 1.1rem 0.2rem 0;
+    }
+    .preview-footer strong {
+        grid-column: 1;
+    }
+    .preview-footer span:last-child {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: center;
+    }
+</style>

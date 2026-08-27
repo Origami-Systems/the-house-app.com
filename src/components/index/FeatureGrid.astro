@@ -1,0 +1,186 @@
+---
+import { CalendarDays, Megaphone, Trophy, Users } from "@lucide/astro";
+import { Card } from "@origami-systems/ui";
+---
+
+<section class="feature-grid" aria-label="Features">
+    <Card class="feature points">
+        <i class="feature-icon"><Trophy size={24} /></i>
+        <h3>Points that feel immediate</h3>
+        <p>
+            Award points as good work happens. Reusable point options help staff
+            stay consistent, while live standings show students the result.
+        </p>
+        <div class="mini-points">
+            <span>
+                Winners of Dodgeball<strong>+50</strong>
+            </span>
+            <span>
+                Community service <strong>+25</strong>
+            </span>
+            <span>
+                Helping another student <strong>+10</strong>
+            </span>
+        </div>
+    </Card>
+    <Card class="feature house">
+        <i class="feature-icon"><Users size={24} /></i>
+        <h3>Your houses, your identity</h3>
+        <p>
+            Use your own names, colors, mottos, student leaders, and staff. The
+            app fits the system you already have.
+        </p>
+    </Card>
+    <Card class="feature updates">
+        <i class="feature-icon"><Megaphone size={24} /></i>
+        <h3>One place for updates</h3>
+        <p>
+            Publish announcements to the right people so the latest news does
+            not get buried in another inbox.
+        </p>
+    </Card>
+    <Card class="feature events calendar-feature">
+        <i class="feature-icon"><CalendarDays size={24} /></i>
+        <h3>Events everyone can find</h3>
+        <p>
+            Share calendars with students, leaders, and staff. Add the details
+            and attachments people need before the day arrives.
+        </p>
+        <div class="calendar">
+            <b><strong>07</strong><small>JAN</small></b>
+            <span>
+                <strong>House games</strong>
+                <small>Field house · 3:30 PM</small>
+            </span>
+        </div>
+    </Card>
+</section>
+
+<style>
+    .feature-grid {
+        display: grid;
+        grid-template-areas:
+            "points points"
+            "house updates"
+            "events events";
+        gap: 10px;
+    }
+    .feature {
+        max-width: unset;
+    }
+    .points {
+        grid-area: points;
+    }
+    .feature :global(.v-container) {
+        display: grid;
+        grid-template-areas:
+            "icon example"
+            "title example"
+            "text example";
+    }
+    .feature i {
+        grid-area: icon;
+    }
+    .feature h3 {
+        grid-area: title;
+        margin: 0;
+    }
+    .feature p {
+        grid-area: text;
+    }
+    .mini-points {
+        grid-area: example;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .mini-points span {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--background-1);
+        border-radius: 13px;
+        padding: 10px;
+        font-size: 0.88rem;
+    }
+    .house {
+        grid-area: house;
+    }
+    .updates {
+        grid-area: updates;
+    }
+    .events {
+        grid-area: events;
+    }
+    .calendar-feature {
+        align-items: center;
+    }
+    .calendar {
+        grid-area: example;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid var(--background-1);
+        border-radius: 16px;
+        padding: 1rem;
+    }
+    .calendar > span,
+    .calendar > b {
+        display: flex;
+        flex-direction: column;
+    }
+    .calendar > span small {
+        color: var(--subtext-0);
+        font-size: 0.82rem;
+    }
+    .calendar > b {
+        align-items: center;
+        justify-content: center;
+        width: 55px;
+        height: 55px;
+        border-radius: 13px;
+        border: 1px solid var(--accent);
+        background: color-mix(in srgb, var(--accent) 24%, transparent);
+    }
+    .calendar > b strong,
+    .calendar > b small {
+        color: #00151d;
+        line-height: 1;
+    }
+    :global(html.dark) .calendar > b strong,
+    :global(html.dark) .calendar > b small {
+        color: var(--always-white);
+    }
+    .calendar > b strong {
+        font-size: 1.3rem;
+    }
+    .calendar > b small {
+        margin-top: 0.2rem;
+        font-size: 0.65rem;
+    }
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: auto;
+        border-radius: 15px;
+    }
+    .feature-icon {
+        display: grid;
+        place-items: center;
+        color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 12%, transparent);
+        font-style: normal;
+    }
+    @media (max-width: 850px) {
+        .feature-grid {
+            grid-template-areas:
+                "points"
+                "house"
+                "updates"
+                "events";
+        }
+    }
+</style>
