@@ -1,0 +1,112 @@
+<section class="section">
+    <div class="title">
+        <p class="kicker">Simple to get started</p>
+        <h2>Bring your house system online.</h2>
+    </div>
+    <p class="description">
+        Start with the structure you already know. We give your community one
+        clear place to follow it.
+    </p>
+    <ol class="steps">
+        <li>
+            <strong>Set up your houses</strong>
+            <p>Add names, colors, people, and roles.</p>
+        </li>
+        <li>
+            <strong>Invite your community</strong>
+            <p>Give staff and students the right access.</p>
+        </li>
+        <li>
+            <strong>Start the competition</strong>
+            <p>Award points and watch the standings move.</p>
+        </li>
+    </ol>
+</section>
+
+<style>
+    .section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        grid-template-rows: repeat(2, auto);
+        width: min(1000px, 100%);
+    }
+    .section-heading {
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+    .title {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        grid-column: span 2;
+        align-self: center;
+    }
+    .title h2 {
+        margin: 0;
+    }
+    .description {
+        margin: 0;
+        color: var(--subtext-0);
+        line-height: 1.65;
+        padding: 5px 10px;
+    }
+    .steps {
+        grid-column: span 3;
+        display: grid;
+        grid-template-columns: subgrid;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        counter-reset: --step;
+    }
+    .steps li {
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid var(--background-1);
+        padding: 1.4rem 0.4rem 0;
+        counter-increment: --step;
+    }
+    .steps li::before {
+        content: "0" counter(--step);
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+    }
+    .steps strong {
+        margin-top: 2rem;
+        font-size: 1.18rem;
+    }
+    .steps p {
+        margin: 0.5rem 0 0;
+        color: var(--subtext-0);
+        line-height: 1.5;
+    }
+
+    .kicker {
+        margin: 0;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 750;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+    }
+
+    @media (max-width: 850px) {
+        .section-heading {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 650px) {
+        .section {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        .steps {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

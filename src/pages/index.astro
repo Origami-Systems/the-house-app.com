@@ -4,6 +4,7 @@ import { AppSubmitButton } from "@origami-systems/ui/components";
 import MainLayout from "~/layouts/MainLayout.astro";
 import FeatureGrid from "~/components/index/FeatureGrid.astro";
 import StandingsPreview from "~/components/index/StandingsPreview.astro";
+import GettingStarted from "~/components/index/GettingStarted.astro";
 import wordmarkDark from "@assets/icons/dark/wordmark.png";
 import wordmarkLight from "@assets/icons/light/wordmark.png";
 ---
@@ -45,8 +46,8 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
                 </a>
             </div>
             <p class="login-note">
-                Already use The House App?
-                <a href="https://app.the-house-app.com"> Log in </a>.
+                Already use The House App? &nbsp;
+                <a href="https://app.the-house-app.com">Log in</a>.
             </p>
         </div>
 
@@ -65,35 +66,7 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
 
     <FeatureGrid />
 
-    <section class="section how">
-        <div class="section-heading">
-            <div>
-                <p class="kicker">Simple to get started</p><h2>
-                    Bring your house system online.
-                </h2>
-            </div><p>
-                Start with the structure you already know. We give your
-                community one clear place to follow it.
-            </p>
-        </div>
-        <ol class="steps">
-            <li>
-                <span>01</span><strong>Set up your houses</strong><p>
-                    Add names, colors, people, and roles.
-                </p>
-            </li>
-            <li>
-                <span>02</span><strong>Invite your community</strong><p>
-                    Give staff and students the right access.
-                </p>
-            </li>
-            <li>
-                <span>03</span><strong>Start the competition</strong><p>
-                    Award points and watch the standings move.
-                </p>
-            </li>
-        </ol>
-    </section>
+    <GettingStarted />
 
     <section class="cta">
         <div>
@@ -198,10 +171,6 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             background: color-mix(in srgb, var(--accent) 12%, transparent);
             font-style: normal;
         }
-        .section {
-            width: min(1000px, 100%);
-            margin-inline: auto;
-        }
         .intro {
             text-align: center;
         }
@@ -221,47 +190,6 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             color: var(--subtext-0);
             font-size: 1.1rem;
             line-height: 1.7;
-        }
-        .section-heading {
-            display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(250px, 0.6fr);
-            align-items: end;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        .section-heading > p {
-            margin: 0;
-            color: var(--subtext-0);
-            line-height: 1.65;
-        }
-        .steps {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 0;
-            padding: 0;
-        }
-        .steps li {
-            display: flex;
-            flex-direction: column;
-            border-top: 2px solid var(--background-1);
-            padding: 1.4rem 0.4rem 0;
-        }
-        .steps li > span {
-            color: var(--accent);
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-        }
-        .steps strong {
-            margin-top: 2rem;
-            font-size: 1.18rem;
-        }
-        .steps p {
-            margin: 0.5rem 0 0;
-            color: var(--subtext-0);
-            line-height: 1.5;
         }
         .cta {
             display: flex;
@@ -286,6 +214,7 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             min-width: 190px;
             margin-top: 0;
         }
+
         @media (max-width: 850px) {
             #index {
                 gap: 5rem;
@@ -308,10 +237,6 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             .product-preview {
                 width: min(520px, calc(100% - 14px));
                 margin-inline: auto;
-            }
-            .section-heading {
-                grid-template-columns: 1fr;
-                gap: 1rem;
             }
             .cta {
                 flex-direction: column;
@@ -339,17 +264,6 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
                 display: flex;
                 align-items: stretch;
             }
-            .mini-points,
-            .calendar {
-                margin-top: 1.5rem;
-            }
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .steps strong {
-                margin-top: 1rem;
-            }
             .cta .actions {
                 width: 100%;
             }
@@ -364,20 +278,6 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             }
             .actions a {
                 width: 100%;
-            }
-            .product-preview {
-                padding: 1rem;
-            }
-            .standing-row {
-                grid-template-columns: 24px minmax(0, 1fr) auto;
-                gap: 0.55rem;
-                padding-inline: 0.7rem;
-            }
-            .standing-row::before {
-                margin-left: -0.7rem;
-            }
-            .preview-footer span:last-child {
-                display: none;
             }
         }
     </style>

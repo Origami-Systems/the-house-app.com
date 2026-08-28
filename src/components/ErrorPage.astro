@@ -1,0 +1,71 @@
+---
+import { AppSubmitButton } from "@origami-systems/ui";
+
+type Props = {
+    code: string;
+    title: string;
+    description: string;
+};
+
+const { code, title, description } = Astro.props;
+---
+
+<section class="error-page">
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <span class="error-code">{code}</span>
+    <nav aria-label="Helpful links">
+        <a href="/">
+            <AppSubmitButton primary> Go home </AppSubmitButton>
+        </a>
+        <a href="/docs">
+            <AppSubmitButton> View docs </AppSubmitButton>
+        </a>
+        <a href="/contact">
+            <AppSubmitButton> Contact us </AppSubmitButton>
+        </a>
+    </nav>
+</section>
+
+<style>
+    .error-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: min(700px, 100%);
+        min-height: min(650px, 70vh);
+        text-align: center;
+    }
+    .error-code {
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        margin: 1rem;
+    }
+    h1 {
+        margin: 0.7rem 0 0;
+        font-size: clamp(3rem, 9vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: -0.065em;
+    }
+    p {
+        max-width: 540px;
+        margin: 1.3rem 0 0;
+        color: var(--subtext-0);
+        font-size: 1.08rem;
+        line-height: 1.65;
+    }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.7rem;
+    }
+    @media (max-width: 430px) {
+        nav {
+            width: 100%;
+            flex-direction: column;
+        }
+    }
+</style>
