@@ -103,10 +103,20 @@
     @media (max-width: 650px) {
         .section {
             grid-template-columns: 1fr;
-            gap: 3rem;
         }
+
+        .title,
+        .description,
+        .steps {
+            grid-column: 1;
+        }
+
         .steps {
             grid-template-columns: 1fr;
+        }
+
+        .steps li {
+            margin-top: 1rem;
         }
     }
 </style>
