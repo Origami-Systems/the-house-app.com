@@ -30,13 +30,15 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             </div>
             <p class="eyebrow">Your whole house system, in one place</p>
             <h1>Give every point a purpose.</h1>
-            <p class="hero-description">
-                Bring houses, points, events, and announcements together so
-                students can see where they stand and staff can keep the
-                momentum going.
+            <p class="hero-tagline">
+                Building community through friendly competition.
             </p>
             <div class="actions">
-                <a href="https://app.the-house-app.com/example">
+                <a
+                    href="https://app.the-house-app.com/example"
+                    target="_blank"
+                    rel="noopener noreferer"
+                >
                     <AppSubmitButton primary>
                         Explore an Example
                     </AppSubmitButton>
@@ -58,9 +60,10 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
         <p class="kicker">Built for the way your community works</p>
         <h2>Keep the competition friendly and the progress visible.</h2>
         <p>
-            The House App gives students a reason to take part and gives staff
-            simple tools to recognize it. Set up the houses your way, then run
-            the day-to-day from one shared home.
+            Bring houses, points, events, and announcements together so students
+            can see where they stand and staff can keep the momentum going. Set
+            up the houses your way, then run the day-to-day from one shared
+            home.
         </p>
     </section>
 
@@ -74,11 +77,15 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
                 Take a look around before you decide.
             </h2><p>
                 Open the example organization to explore the experience for
-                yourself, or get in touch to talk about your school.
+                yourself, or get in touch to talk about your organization.
             </p>
         </div>
         <div class="actions">
-            <a href="https://app.the-house-app.com/example">
+            <a
+                href="https://app.the-house-app.com/example"
+                target="_blank"
+                rel="noopener noreferer"
+            >
                 <AppSubmitButton primary> Explore an Example</AppSubmitButton>
             </a>
             <a href="/contact">
@@ -142,12 +149,12 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             letter-spacing: -0.075em;
             line-height: 0.92;
         }
-        .hero-description {
-            max-width: 610px;
-            margin: 1.6rem 0 0;
-            color: var(--subtext-0);
-            font-size: clamp(1.05rem, 2vw, 1.25rem);
-            line-height: 1.65;
+        .hero-tagline {
+            margin: 1.1rem 0 0;
+            color: var(--text-1);
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-weight: 700;
+            line-height: 1.35;
         }
         .actions {
             display: flex;
@@ -229,7 +236,7 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
                 padding-left: 0;
             }
             .wordmark,
-            .hero-description {
+            .hero-tagline {
                 margin-inline: auto;
             }
             .hero .actions {
