@@ -11,13 +11,23 @@ import TitleBar from "../components/navigation/TitleBar.astro";
 
 import "../styles/global.css";
 import "@origami-systems/ui/style.css";
+import { Apps } from "@origami-systems/config";
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | ${Apps.house.title}` : Apps.house.title;
+const canonicalUrl = new URL(
+    Astro.url.pathname,
+    Astro.site ?? Astro.url.origin,
+);
 ---
 
 <html lang="en" class="light">
     <head>
-        <Head title={title ? `${title} | The House App` : "The House App"} />
+        <Head
+            title={pageTitle}
+            description={description}
+            canonicalUrl={canonicalUrl}
+        />
 
         <slot name="head" />
     </head>
