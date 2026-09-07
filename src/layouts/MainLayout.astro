@@ -12,12 +12,12 @@ import TitleBar from "../components/navigation/TitleBar.astro";
 import "../styles/global.css";
 import "@origami-systems/ui/style.css";
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en" class="light">
     <head>
-        <Head title={title} />
+        <Head title={title} description={description} />
 
         <slot name="head" />
     </head>
