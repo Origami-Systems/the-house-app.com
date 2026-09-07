@@ -102,15 +102,13 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             gap: 7rem;
             padding-top: clamp(2.5rem, 6vw, 5.5rem);
         }
-        h1 {
-            max-width: unset;
-        }
         .hero {
             display: grid;
             grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.95fr);
             align-items: center;
             gap: clamp(3rem, 7vw, 7rem);
             min-height: 620px;
+            max-width: min(1300px, 100%);
         }
         .hero-copy {
             padding-left: 20px;
@@ -144,9 +142,10 @@ import wordmarkLight from "@assets/icons/light/wordmark.png";
             text-transform: uppercase;
         }
         h1 {
+            max-width: unset;
             margin: 0;
             font-size: clamp(3.4rem, 7vw, 6.2rem);
-            letter-spacing: -0.075em;
+            letter-spacing: -5px;
             line-height: 0.92;
         }
         .hero-tagline {
