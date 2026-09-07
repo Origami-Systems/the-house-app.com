@@ -1,49 +1,140 @@
 ---
-import MainLayout from "~/layouts/MainLayout.astro";
-import { Card, LargeTitleText } from "@origami-systems/ui";
-import { allQuestions } from "~/content/faq_questions";
 import { ChevronRight } from "@lucide/astro";
+import { AppSubmitButton, LargeTitleText } from "@origami-systems/ui";
+import MainLayout from "~/layouts/MainLayout.astro";
+import { allQuestions } from "~/content/faq_questions";
 ---
 
 <MainLayout title="FAQ">
     <LargeTitleText>Frequently<br />Asked Questions</LargeTitleText>
-    <Card class="faq-card">
-        {
-            allQuestions.map((section) => (
-                <details name="faq-item" data-inline>
-                    <summary>
-                        <span>{section.name}</span>
-                        <ChevronRight />
-                    </summary>
-                    <div class="faq-item">
-                        {section.questions.map((i) => (
-                            <>
-                                <h3 class="question">{i.q}</h3>
-                                <p class="answer">{i.a}</p>
-                            </>
-                        ))}
-                    </div>
-                </details>
-            ))
-        }
-    </Card>
+    <div class="faq-page">
+        <div class="faq-sections">
+            {
+                allQuestions.map((section) => (
+                    <details name="faq-section">
+                        <summary>
+                            <span>{section.name}</span>
+                            <span class="question-count">
+                                {section.questions.length}
+                            </span>
+                            <ChevronRight aria-hidden="true" />
+                        </summary>
+                        <div class="faq-items">
+                            {section.questions.map((item) => (
+                                <div class="faq-item">
+                                    <h2>{item.q}</h2>
+                                    <p>{item.a}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+
+        <aside class="contact-callout">
+            <div>
+                <strong>Still need help?</strong>
+                <p>
+                    Send us your question and we'll point you in the right
+                    direction.
+                </p>
+            </div>
+            <a href="/contact">
+                <AppSubmitButton primary> Contact us </AppSubmitButton>
+            </a>
+        </aside>
+    </div>
 </MainLayout>
 
 <style>
-    .faq-card {
-        max-width: 80%;
+    .faq-page {
+        width: min(900px, 100%);
     }
-
+    .page-header {
+        margin-bottom: 2rem;
+    }
+    .page-header :global(.title) {
+        margin-inline: 0;
+    }
+    .page-header p {
+        max-width: 620px;
+        margin: 0.6rem 0 0;
+        color: var(--subtext-0);
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+    .faq-sections {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    details {
+        overflow: hidden;
+        border: var(--border);
+        border-radius: var(--border-radius);
+        background: var(--card-background);
+    }
+    details > summary {
+        height: auto;
+        min-height: 62px;
+        border: 0;
+        border-radius: 0;
+        padding: 0.9rem 1.2rem;
+        font-size: 1.05rem;
+        font-weight: 750;
+    }
+    details[open] > summary {
+        border-bottom: var(--divider-thin);
+    }
+    .question-count {
+        margin-left: auto;
+        color: var(--subtext-0);
+        font-size: 0.8rem;
+        font-weight: 650;
+    }
+    .faq-items {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1.2rem;
+    }
     .faq-item {
+        padding: 1.35rem 0;
         text-align: left;
     }
-
-    .faq-item .question {
-        color: var(--text-0);
+    .faq-item + .faq-item {
+        border-top: var(--divider-thin);
     }
-
-    .faq-item .answer {
-        margin-left: 10px;
-        color: var(--text-1);
+    .faq-item h2 {
+        margin: 0;
+        font-size: 1.05rem;
+        letter-spacing: -0.015em;
+    }
+    .faq-item p {
+        margin: 0.55rem 0 0;
+        color: var(--subtext-0);
+        line-height: 1.65;
+    }
+    .contact-callout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-top: 1rem;
+        border: var(--border);
+        border-radius: var(--border-radius);
+        padding: 1.2rem;
+        text-align: left;
+    }
+    .contact-callout p {
+        margin: 0.3rem 0 0;
+        color: var(--subtext-0);
+    }
+    @media (max-width: 600px) {
+        .contact-callout {
+            align-items: stretch;
+            flex-direction: column;
+            gap: 1rem;
+        }
     }
 </style>

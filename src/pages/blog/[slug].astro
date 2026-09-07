@@ -23,7 +23,7 @@ const { data } = post;
 const { Content } = await render(post);
 ---
 
-<MainLayout title={post.data.title}>
+<MainLayout title={post.data.title} description={post.data.description}>
     <link
         slot="head"
         rel="alternate"

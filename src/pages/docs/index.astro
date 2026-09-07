@@ -1,21 +1,27 @@
 ---
 import { getCollection } from "astro:content";
-import MainLayout from "../../layouts/MainLayout.astro";
-import { LargeTitleText, CardGrid } from "@origami-systems/ui";
+import { BookOpen } from "@lucide/astro";
+import { CardGrid, LargeTitleText } from "@origami-systems/ui";
+import MainLayout from "~/layouts/MainLayout.astro";
 
-const posts = await getCollection("docs");
+const docs = (await getCollection("docs")).filter(({ data }) => !data.draft);
 ---
 
 <MainLayout title="Docs">
-    <LargeTitleText> Docs </LargeTitleText>
+    <LargeTitleText>Docs</LargeTitleText>
     <CardGrid>
         {
-            posts.map((a) => (
-                <article>
-                    <a href={`/docs/${a.data.slug}`} class="link">
+            docs.map(({ data }) => (
+                <article class="ignore-div">
+                    <a href={`/docs/${data.slug}`} class="link">
                         <div class="item">
-                            <div class="title">{a.data.title}</div>
-                            <div class="description">{a.data.description}</div>
+                            <div class="item-heading">
+                                <span class="item-icon">
+                                    <BookOpen size={20} />
+                                </span>
+                                <div class="title">{data.title}</div>
+                            </div>
+                            <div class="description">{data.description}</div>
                         </div>
                     </a>
                 </article>
@@ -23,28 +29,74 @@ const posts = await getCollection("docs");
         }
     </CardGrid>
 </MainLayout>
-<style lang="scss">
+
+<style>
     .link {
-        display: grid;
+        display: flex;
         flex: 1;
-
-        .item {
-            position: relative;
-            padding: 20px;
-            text-align: left;
-            border: var(--border);
-            border-radius: var(--border-radius);
-
-            .title {
-                color: var(--text-0);
-                font-weight: bold;
-                margin-bottom: 20px;
-                font-size: 1.2rem;
-            }
-
-            .description {
-                color: var(--subtext-0);
-            }
+        color: var(--text-1);
+        text-decoration: none;
+    }
+    .item {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 0.8rem;
+        min-height: 140px;
+        border: var(--border);
+        border-radius: var(--border-radius);
+        background: var(--card-background);
+        padding: 1.2rem;
+        text-align: left;
+        transition: var(--transitions);
+    }
+    .link:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: var(--border-radius);
+    }
+    .item-heading {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 0.75rem;
+        padding-right: 5.5rem;
+    }
+    .item-icon {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--accent);
+        border-radius: 13px;
+        background: color-mix(in srgb, var(--accent) 14%, transparent);
+        color: var(--accent);
+    }
+    .title {
+        color: var(--text-0);
+        font-size: 1.2rem;
+        font-weight: 750;
+        line-height: 1.25;
+    }
+    .description {
+        color: var(--subtext-0);
+        line-height: 1.5;
+    }
+    time {
+        position: absolute;
+        top: 1rem;
+        right: 1.1rem;
+        color: var(--subtext-0);
+        font-size: 0.78rem;
+    }
+    @media (max-width: 430px) {
+        .item-heading {
+            padding-right: 0;
+        }
+        time {
+            position: static;
+            margin-top: auto;
         }
     }
 </style>
