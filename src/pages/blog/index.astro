@@ -53,7 +53,7 @@ const posts = unsortedPosts.sort(
 </MainLayout>
 <style>
     .link {
-        display: grid;
+        display: flex;
         flex: 1;
     }
 
@@ -61,6 +61,7 @@ const posts = unsortedPosts.sort(
         position: relative;
         display: flex;
         flex-direction: column;
+        flex: 1;
         gap: 10px;
         padding: 20px;
         min-height: 100px;
@@ -84,7 +85,7 @@ const posts = unsortedPosts.sort(
         width: 100%;
         flex-direction: row;
         margin-top: auto;
-        padding-top: 20px;
+        /* padding-top: 20px; */
         align-items: center;
     }
     .tags {
