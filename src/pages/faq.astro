@@ -6,7 +6,7 @@ import { allQuestions } from "~/content/faq_questions";
 ---
 
 <MainLayout title="FAQ">
-    <LargeTitleText>Frequently<br />Asked Questions</LargeTitleText>
+    <LargeTitleText>FAQ</LargeTitleText>
     <div class="faq-page">
         <div class="faq-sections">
             {
@@ -69,24 +69,6 @@ import { allQuestions } from "~/content/faq_questions";
         flex-direction: column;
         gap: 0.7rem;
     }
-    details {
-        overflow: hidden;
-        border: var(--border);
-        border-radius: var(--border-radius);
-        background: var(--card-background);
-    }
-    details > summary {
-        height: auto;
-        min-height: 62px;
-        border: 0;
-        border-radius: 0;
-        padding: 0.9rem 1.2rem;
-        font-size: 1.05rem;
-        font-weight: 750;
-    }
-    details[open] > summary {
-        border-bottom: var(--divider-thin);
-    }
     .question-count {
         margin-left: auto;
         color: var(--subtext-0);
@@ -120,7 +102,7 @@ import { allQuestions } from "~/content/faq_questions";
         align-items: center;
         justify-content: space-between;
         gap: 2rem;
-        margin-top: 1rem;
+        margin-top: 10px;
         border: var(--border);
         border-radius: var(--border-radius);
         padding: 1.2rem;

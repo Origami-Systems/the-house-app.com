@@ -1,15 +1,19 @@
 <template>
     <div class="settings">
         <input type="search" v-model.trim="search" class="search" placeholder="Search" />
-        <Dropdown
-            :options="['issues', 'enhancements']"
-            :option-display="(a) => normalizeString(a)"
-            v-model="mode" />
-        <Dropdown
-            :options="['open', 'closed']"
-            :option-display="(a) => normalizeString(a)"
-            v-model="status"
-            width="140px" />
+        <div class="dropdowns">
+            <Dropdown
+                :options="['issues', 'enhancements']"
+                :option-display="(a) => normalizeString(a)"
+                v-model="mode"
+                compact />
+            <Dropdown
+                :options="['open', 'closed']"
+                :option-display="(a) => normalizeString(a)"
+                v-model="status"
+                width="140px"
+                compact />
+        </div>
     </div>
     <RoundedContainer>
         <template #title>
@@ -81,11 +85,20 @@ onMounted(() => {
     width: 100%;
     max-width: 700px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.6rem;
     align-items: center;
     justify-items: center;
-    transition: all 0.3s ease;
+}
+
+.left-aligned {
+    padding: 5px 10px;
+}
+
+.dropdowns {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .none {
