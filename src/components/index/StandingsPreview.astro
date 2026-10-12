@@ -8,9 +8,9 @@
             <strong>Light Blue House</strong>
             <strong class="points">1,250</strong>
         </div>
-        <div class="standing-row blue">
+        <div class="standing-row teal">
             <span class="place">2</span>
-            <strong>Blue House</strong>
+            <strong>Teal House</strong>
             <strong class="points">1,180</strong>
         </div>
         <div class="standing-row orange">
@@ -66,6 +66,8 @@
         border: 1px solid var(--house-color);
         border-radius: var(--border-radius);
         overflow: hidden;
+        background: color-mix(in srgb, var(--house-color) 20%, transparent);
+        padding: 0.75rem 0.9rem;
     }
     .standing-row::before {
         content: "";
@@ -92,8 +94,8 @@
     .points {
         font-variant-numeric: tabular-nums;
     }
-    .light-blue {
-        --house-color: var(--color-light-blue);
+    .teal {
+        --house-color: var(--color-teal);
     }
     .blue {
         --house-color: var(--color-blue);
