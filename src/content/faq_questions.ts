@@ -37,10 +37,10 @@ export const allQuestions: FAQAnswers[] = [
                 q: "I can't log in. What should I do?",
                 a: "Ask your organization admin to confirm that your account exists and reset your password if needed.",
             },
-            {
-                q: "How do I reset my password?",
-                a: "Open Account, then Manage Account Security to change your password. If you cannot sign in, ask your organization admin to reset it.",
-            },
+            // {
+            //     q: "How do I reset my password?",
+            //     a: "Open Account, then Manage Account Security to change your password. If you cannot sign in, ask your organization admin to reset it.",
+            // },
             {
                 q: "Can I use the same account for multiple organizations?",
                 a: "No, you cannot use the same account for multiple organizations. Each organization requires a separate account.",
