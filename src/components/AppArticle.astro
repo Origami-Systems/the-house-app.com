@@ -1,0 +1,96 @@
+---
+import { LargeTitleText } from "@origami-systems/ui";
+
+interface Props {
+    backHref: string;
+    backLabel: string;
+    title: string;
+    description: string;
+}
+
+const { backHref, backLabel, title, description } = Astro.props;
+const hasMeta = Astro.slots.has("meta");
+---
+
+<article class="article-page">
+    <a class="back-link" href={backHref}>← {backLabel}</a>
+    <header class="article-heading">
+        <LargeTitleText>{title}</LargeTitleText>
+        <p>{description}</p>
+    </header>
+
+    <section class="article-container">
+        {
+            hasMeta && (
+                <div class="article-meta">
+                    <slot name="meta" />
+                </div>
+            )
+        }
+        <div class="article-content"><slot /></div>
+    </section>
+</article>
+
+<style>
+    .article-page {
+        width: min(720px, 100%);
+        padding-top: clamp(1.5rem, 4vw, 3.5rem);
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: var(--accent);
+        font-weight: 750;
+        text-decoration: none;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+
+    .article-heading {
+        margin-bottom: 1.5rem;
+        text-align: left;
+    }
+
+    .article-heading :global(.large-title) {
+        margin: 0;
+        font-size: clamp(2.35rem, 6vw, 4.1rem);
+        line-height: 1;
+    }
+
+    .article-heading p {
+        max-width: 640px;
+        margin: 0.75rem 0 0;
+        color: var(--subtext-0);
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    .article-container {
+        overflow: hidden;
+        border: var(--border);
+        border-radius: var(--border-radius);
+        background: var(--card-background);
+        transition: var(--transitions);
+    }
+
+    .article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.65rem;
+        min-height: 55px;
+        border-bottom: var(--divider-thin);
+        padding: 0.75rem 1.25rem;
+        color: var(--subtext-0);
+        font-size: 0.85rem;
+    }
+
+    .article-content {
+        padding: clamp(1.2rem, 3vw, 2rem);
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+</style>

@@ -1,16 +1,12 @@
 ---
-import { AppSubmitButton } from "@origami-systems/ui";
+import ErrorPage from "@/ErrorPage.astro";
 import MainLayout from "~/layouts/MainLayout.astro";
-const { error } = Astro.props;
 ---
 
-<MainLayout title="An Error Occurred">
-    <h1>An Error Occurred</h1>
-    <p>
-        Message: {error instanceof Error ? error.message : "Unknown error"}
-    </p>
-
-    <a href="/">
-        <AppSubmitButton> Back </AppSubmitButton>
-    </a>
+<MainLayout title="Something Went Wrong">
+    <ErrorPage
+        code="500"
+        title="Something went wrong"
+        description="We couldn't load this page. Try again in a moment, or contact us if the problem continues."
+    />
 </MainLayout>

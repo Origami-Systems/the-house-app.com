@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
+import { Megaphone, Newspaper } from "@lucide/astro";
+import { Badge, CardGrid, LargeTitleText } from "@origami-systems/ui";
 import MainLayout from "~/layouts/MainLayout.astro";
-import { LargeTitleText, CardGrid, Badge } from "@origami-systems/ui";
 
-const unsortedPosts = await getCollection("blog");
-const posts = unsortedPosts.sort(
-    (a, b) => Number(b.data.timestamp) - Number(a.data.timestamp),
-);
+const posts = (await getCollection("blog"))
+    .filter(({ data }) => !data.draft)
+    .sort((a, b) => b.data.timestamp.getTime() - a.data.timestamp.getTime());
 ---
 
 <MainLayout title="Blog">
@@ -17,14 +17,23 @@ const posts = unsortedPosts.sort(
         title="The House App Blog RSS"
         href="https://the-house-app.com/blog/rss.xml"
     />
-    <LargeTitleText> Blog </LargeTitleText>
+    <LargeTitleText>Blog</LargeTitleText>
     <CardGrid>
         {
             posts.map(({ data }) => (
                 <article class="ignore-div">
                     <a href={`/blog/${data.slug}`} class="link">
                         <div class="item">
-                            <div class="title">{data.title}</div>
+                            <div class="item-heading">
+                                <span class="item-icon">
+                                    {data.type === "announcement" ? (
+                                        <Megaphone size={20} />
+                                    ) : (
+                                        <Newspaper size={20} />
+                                    )}
+                                </span>
+                                <div class="title">{data.title}</div>
+                            </div>
                             <div class="description">{data.description}</div>
                             <div class="extra">
                                 <Badge>
@@ -32,17 +41,17 @@ const posts = unsortedPosts.sort(
                                 </Badge>
                                 <div class="tags">
                                     {data.tags.map((tag) => (
-                                        <div class="tag">{tag}</div>
+                                        <span>{tag}</span>
                                     ))}
                                 </div>
                             </div>
-                            <time
-                                class="timestamp"
-                                datetime={new Date(
-                                    data.timestamp,
-                                ).toISOString()}
-                            >
-                                {new Date(data.timestamp).toLocaleDateString()}
+                            <time datetime={data.timestamp.toISOString()}>
+                                {data.timestamp.toLocaleDateString("en-US", {
+                                    month: "short",
+                                    day: "numeric",
+                                    year: "numeric",
+                                    timeZone: "UTC",
+                                })}
                             </time>
                         </div>
                     </a>
@@ -51,60 +60,93 @@ const posts = unsortedPosts.sort(
         }
     </CardGrid>
 </MainLayout>
+
 <style>
     .link {
         display: flex;
         flex: 1;
+        color: var(--text-1);
+        text-decoration: none;
     }
-
     .item {
         position: relative;
         display: flex;
-        flex-direction: column;
         flex: 1;
-        gap: 10px;
-        padding: 20px;
-        min-height: 100px;
-        text-align: left;
+        flex-direction: column;
+        gap: 0.75rem;
+        min-height: 180px;
         border: var(--border);
         border-radius: var(--border-radius);
+        background: var(--card-background);
+        padding: 1.2rem;
+        text-align: left;
+        transition: var(--transitions);
     }
-
+    .link:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: var(--border-radius);
+    }
+    .item-heading {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 0.75rem;
+        padding-right: 5.5rem;
+    }
+    .item-icon {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        border-radius: 13px;
+        color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 12%, transparent);
+        font-style: normal;
+    }
     .title {
         color: var(--text-0);
-        font-weight: bold;
         font-size: 1.2rem;
+        font-weight: 750;
+        line-height: 1.25;
     }
-
     .description {
         color: var(--subtext-0);
+        line-height: 1.5;
     }
-
     .extra {
         display: flex;
-        width: 100%;
-        flex-direction: row;
-        margin-top: auto;
-        /* padding-top: 20px; */
         align-items: center;
+        gap: 0.7rem;
+        width: 100%;
+        margin-top: auto;
     }
     .tags {
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
-        gap: 10px;
-        font-size: 0.9rem;
+        gap: 0.6rem;
         margin-left: auto;
+        color: var(--subtext-0);
+        font-size: 0.82rem;
     }
-    .tag {
-        color: var(--subtext-2);
-    }
-
-    .timestamp {
+    time {
         position: absolute;
-        right: 15px;
-        top: 6px;
-        color: var(--subtext-1);
-        font-size: 0.8rem;
+        top: 1rem;
+        right: 1.1rem;
+        color: var(--subtext-0);
+        font-size: 0.78rem;
+    }
+    @media (max-width: 430px) {
+        .item-heading {
+            padding-right: 0;
+        }
+        time {
+            position: static;
+            order: 3;
+        }
+        .tags {
+            display: none;
+        }
     }
 </style>

@@ -20,7 +20,7 @@ const { data } = docs;
 const { Content } = await render(docs);
 ---
 
-<MainLayout title={data.title}>
+<MainLayout title={data.title} description={data.description}>
     <div class="docs">
         <div class="header">
             <h1>{data.title}</h1>
