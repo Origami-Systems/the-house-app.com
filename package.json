@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "astro dev",
-        "prod": "pnpm build && npx serve dist -l 4321",
+        "prod": "pnpm build && pnpx serve dist -l 4321",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
