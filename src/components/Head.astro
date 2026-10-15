@@ -15,6 +15,15 @@ const imageUrl = new URL("/icons/512x512.png", canonicalUrl).href;
 ---
 
 <title>{title}</title>
+<script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: data.title,
+        url: "https://the-house-app.com/",
+    })}
+/>
 <meta charset="utf-8" />
 <meta name="title" content={title} />
 <meta name="description" content={description} />
