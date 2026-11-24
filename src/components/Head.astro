@@ -7,23 +7,68 @@ interface Props {
     title: string;
     description?: string;
     canonicalUrl: URL;
+    type?: "website" | "article";
+    publishedTime?: Date;
+    image?: string;
+    imageAlt?: string;
+    noindex?: boolean;
 }
 
 const data = Apps.house;
-const { title, description = data.description, canonicalUrl } = Astro.props;
-const imageUrl = new URL("/icons/512x512.png", canonicalUrl).href;
+const {
+    title,
+    description = data.description,
+    canonicalUrl,
+    type = "website",
+    publishedTime,
+    image = "/icons/512x512.png",
+    imageAlt = `${data.title} logo`,
+    noindex = false,
+} = Astro.props;
+const imageUrl = new URL(image, canonicalUrl).href;
+const organization = {
+    "@type": "Organization",
+    "@id": "https://origamisystems.org/#organization",
+    name: "Origami Systems",
+    url: "https://origamisystems.org/",
+    logo: "https://origamisystems.org/icons/512x512.png",
+    sameAs: [
+        "https://www.instagram.com/origamisystems",
+        "https://www.facebook.com/origamisystemsllc",
+        "https://www.linkedin.com/company/origami-systems",
+        "https://x.com/_origamisystems",
+    ],
+};
+const structuredData =
+    type === "article"
+        ? {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: title.replace(/ \| The House App$/, ""),
+              description,
+              url: canonicalUrl.href,
+              image: imageUrl,
+              datePublished: publishedTime?.toISOString(),
+              author: { "@id": organization["@id"] },
+              publisher: organization,
+              mainEntityOfPage: canonicalUrl.href,
+          }
+        : {
+              "@context": "https://schema.org",
+              "@graph": [
+                  organization,
+                  {
+                      "@type": "WebSite",
+                      name: data.title,
+                      url: "https://the-house-app.com/",
+                      publisher: { "@id": organization["@id"] },
+                  },
+              ],
+          };
 ---
 
 <title>{title}</title>
-<script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: data.title,
-        url: "https://the-house-app.com/",
-    })}
-/>
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 <meta charset="utf-8" />
 <meta name="title" content={title} />
 <meta name="description" content={description} />
@@ -58,17 +103,28 @@ const imageUrl = new URL("/icons/512x512.png", canonicalUrl).href;
 <meta property="og:site_name" content={data.title} />
 <meta property="og:description" content={description} />
 <meta property="og:locale" content="en_US" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalUrl.href} />
-<meta property="og:image:alt" content={`${data.title} logo`} />
+<meta property="og:image:alt" content={imageAlt} />
 <meta property="og:image" content={imageUrl} />
-<meta name="twitter:card" content="summary_large_image" />
+{publishedTime && (
+    <meta
+        property="article:published_time"
+        content={publishedTime.toISOString()}
+    />
+)}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@_origamisystems" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
-<meta name="twitter:image:alt" content={`${data.title} logo`} />
+<meta name="twitter:image:alt" content={imageAlt} />
 
-<link rel="canonical" href={canonicalUrl.href} />
+{noindex ? (
+    <meta name="robots" content="noindex" />
+) : (
+    <link rel="canonical" href={canonicalUrl.href} />
+)}
 
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
@@ -93,6 +149,12 @@ const imageUrl = new URL("/icons/512x512.png", canonicalUrl).href;
     crossorigin
 />
 <link rel="sitemap" href="/sitemap-index.xml" />
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="The House App Blog"
+    href={new URL("/blog/rss.xml", canonicalUrl).href}
+/>
 <!-- <ClientRouter /> -->
 <script is:inline>
     const theme = (() => {

@@ -8,7 +8,9 @@ export type Props = {
 };
 
 export async function getStaticPaths() {
-    const unsortedPosts = await getCollection("blog");
+    const unsortedPosts = (await getCollection("blog")).filter(
+        ({ data }) => !data.draft,
+    );
     const posts = unsortedPosts.sort(
         (a, b) => Number(b.data.timestamp) - Number(a.data.timestamp),
     );
@@ -25,15 +27,10 @@ const { Content } = await render(post);
 
 <MainLayout
     title={post.data.title}
-    description={post.data.description + " | The House App Blog"}
+    description={post.data.description}
+    type="article"
+    publishedTime={data.timestamp}
 >
-    <link
-        slot="head"
-        rel="alternate"
-        type="application/rss+xml"
-        title="The House App Blog RSS"
-        href="https://the-house-app.com/blog/rss.xml"
-    />
     <article class="blog">
         <header>
             <h1>{data.title}</h1>

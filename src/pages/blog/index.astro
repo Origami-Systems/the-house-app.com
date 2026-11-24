@@ -10,54 +10,45 @@ const posts = (await getCollection("blog"))
 ---
 
 <MainLayout title="Blog">
-    <link
-        slot="head"
-        rel="alternate"
-        type="application/rss+xml"
-        title="The House App Blog RSS"
-        href="https://the-house-app.com/blog/rss.xml"
-    />
     <LargeTitleText>Blog</LargeTitleText>
     <CardGrid>
-        {
-            posts.map(({ data }) => (
-                <article class="ignore-div">
-                    <a href={`/blog/${data.slug}`} class="link">
-                        <div class="item">
-                            <div class="item-heading">
-                                <span class="item-icon">
-                                    {data.type === "announcement" ? (
-                                        <Megaphone size={20} />
-                                    ) : (
-                                        <Newspaper size={20} />
-                                    )}
-                                </span>
-                                <div class="title">{data.title}</div>
-                            </div>
-                            <div class="description">{data.description}</div>
-                            <div class="extra">
-                                <Badge>
-                                    <span class="capitalize">{data.type}</span>
-                                </Badge>
-                                <div class="tags">
-                                    {data.tags.map((tag) => (
-                                        <span>{tag}</span>
-                                    ))}
-                                </div>
-                            </div>
-                            <time datetime={data.timestamp.toISOString()}>
-                                {data.timestamp.toLocaleDateString("en-US", {
-                                    month: "short",
-                                    day: "numeric",
-                                    year: "numeric",
-                                    timeZone: "UTC",
-                                })}
-                            </time>
+        {posts.map(({ data }) => (
+            <article class="ignore-div">
+                <a href={`/blog/${data.slug}`} class="link">
+                    <div class="item">
+                        <div class="item-heading">
+                            <span class="item-icon">
+                                {data.type === "announcement" ? (
+                                    <Megaphone size={20} />
+                                ) : (
+                                    <Newspaper size={20} />
+                                )}
+                            </span>
+                            <div class="title">{data.title}</div>
                         </div>
-                    </a>
-                </article>
-            ))
-        }
+                        <div class="description">{data.description}</div>
+                        <div class="extra">
+                            <Badge>
+                                <span class="capitalize">{data.type}</span>
+                            </Badge>
+                            <div class="tags">
+                                {data.tags.map((tag) => (
+                                    <span>{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+                        <time datetime={data.timestamp.toISOString()}>
+                            {data.timestamp.toLocaleDateString("en-US", {
+                                month: "short",
+                                day: "numeric",
+                                year: "numeric",
+                                timeZone: "UTC",
+                            })}
+                        </time>
+                    </div>
+                </a>
+            </article>
+        ))}
     </CardGrid>
 </MainLayout>
 

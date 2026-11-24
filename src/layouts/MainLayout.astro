@@ -2,6 +2,11 @@
 type Props = {
     title?: string;
     description?: string;
+    type?: "website" | "article";
+    publishedTime?: Date;
+    image?: string;
+    imageAlt?: string;
+    noindex?: boolean;
 };
 
 import Footer from "../components/Footer.astro";
@@ -13,7 +18,7 @@ import "../styles/global.css";
 import "@origami-systems/ui/style.css";
 import { Apps } from "@origami-systems/config";
 
-const { title, description } = Astro.props;
+const { title, ...head } = Astro.props;
 const pageTitle = title ? `${title} | ${Apps.house.title}` : Apps.house.title;
 const canonicalUrl = new URL(
     Astro.url.pathname,
@@ -23,11 +28,7 @@ const canonicalUrl = new URL(
 
 <html lang="en" class="light">
     <head>
-        <Head
-            title={pageTitle}
-            description={description}
-            canonicalUrl={canonicalUrl}
-        />
+        <Head title={pageTitle} {...head} canonicalUrl={canonicalUrl} />
 
         <slot name="head" />
     </head>
