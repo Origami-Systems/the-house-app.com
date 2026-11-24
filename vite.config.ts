@@ -10,6 +10,7 @@ export default defineConfig({
         singleAttributePerLine: false,
         bracketSameLine: true,
         ignorePatterns: [".github/**"],
+        htmlWhitespaceSensitivity: "ignore",
     },
     lint: {
         plugins: ["typescript", "oxc", "vue", "import"],

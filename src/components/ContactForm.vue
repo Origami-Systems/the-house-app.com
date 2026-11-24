@@ -1,54 +1,45 @@
 <template>
-    <form @submit.prevent class="form">
-        <label>
-            Name
+    <form @submit.prevent="submit" class="form">
+        <TextField
+            v-model="name"
+            label="Name"
+            required
+            placeholder="Enter your name"
+            autocomplete="name" />
+        <Field label="Email Address" required v-slot="field">
             <input
-                type="text"
-                v-model="name"
-                required
-                placeholder="Enter your name"
-                autocomplete="name" />
-        </label>
-        <label>
-            Email Address
-            <input
+                :id="field.id"
+                :aria-describedby="field.describedBy"
                 type="email"
                 v-model="email"
-                required
                 placeholder="Enter your email"
                 autocomplete="email" />
-        </label>
-        <label>
-            Organization
-            <input
-                type="text"
-                v-model="organization"
-                placeholder="Your company, school, or group"
-                required
-                autocomplete="organization" />
-        </label>
-        <label>
-            How did you hear about us?
+        </Field>
+        <TextField
+            v-model="organization"
+            label="Organization"
+            required
+            placeholder="Your company, school, or group"
+            autocomplete="organization" />
+        <Field label="How did you hear about us?" required v-slot="field">
             <Dropdown
-                type="text"
+                :id="field.id"
+                :aria-describedby="field.describedBy"
                 v-model="hear"
-                :option-display="(a) => a"
                 :options="howDidYouHearAboutUsOptions"
                 required />
-        </label>
-        <label v-if="hear === 'Other'">
-            Please specify
-            <input
-                type="text"
-                v-model="howDidYouHearAboutUs"
-                required
-                placeholder="Tell us where you heard about us" />
-        </label>
+        </Field>
+        <TextField
+            v-if="hear === 'Other'"
+            v-model="howDidYouHearAboutUs"
+            label="Please specify"
+            required
+            placeholder="Tell us where you heard about us" />
         <TextArea
-            label="What would you like to know more about? (optional)"
+            label="What would you like to know more about?"
             v-model="question"
             placeholder="Tell us what interests you or any questions you have"
-            class="text-area" />
+            stacked />
         <input
             type="text"
             v-model="hp_field"
@@ -56,15 +47,25 @@
             autocomplete="off"
             tabindex="-1"
             style="display: none" />
-        <AppSubmitButton type="submit" @click="submit" primary :disabled>Submit</AppSubmitButton>
+        <AppSubmitButton type="submit" primary :disabled="disabled || submitting">
+            {{ submitting ? "Sending..." : "Submit" }}
+        </AppSubmitButton>
     </form>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { TextArea, Dropdown, AppSubmitButton, useNotifications } from "@origami-systems/ui";
+import {
+    TextArea,
+    TextField,
+    Field,
+    Dropdown,
+    AppSubmitButton,
+    useNotifications,
+} from "@origami-systems/ui";
 import { SubmitContact } from "@utils/SubmitContact";
 
+const submitting = ref(false);
 const hp_field = ref("");
 const name = ref("");
 const email = ref("");
@@ -83,7 +84,9 @@ const notifications = useNotifications();
 
 const disabled = computed(() => !name.value || !email.value || !organization.value || !hear.value);
 
-const submit = async (done: () => void) => {
+const submit = async () => {
+    if (submitting.value) return;
+    submitting.value = true;
     try {
         if (!name.value || !email.value || !organization.value || !hear.value) {
             notifications.error("Please fill out all required fields.");
@@ -115,17 +118,12 @@ const submit = async (done: () => void) => {
             question.value = "";
         }
     } finally {
-        done();
+        submitting.value = false;
     }
 };
 </script>
 
 <style scoped>
-.text-area :deep(label) {
-    text-align: left;
-    margin-bottom: 10px;
-}
-
 .form {
     display: flex;
     flex-direction: column;

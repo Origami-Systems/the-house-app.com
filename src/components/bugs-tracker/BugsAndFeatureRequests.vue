@@ -1,14 +1,22 @@
 <template>
     <div class="settings">
-        <input type="search" v-model.trim="search" class="search" placeholder="Search" />
+        <div class="search">
+            <TextField
+                type="search"
+                v-model.trim="search"
+                aria-label="Search issues"
+                placeholder="Search" />
+        </div>
         <div class="dropdowns">
             <Dropdown
                 :options="['issues', 'enhancements']"
+                aria-label="Issue type"
                 :option-display="(a) => normalizeString(a)"
                 v-model="mode"
                 compact />
             <Dropdown
                 :options="['open', 'closed']"
+                aria-label="Issue status"
                 :option-display="(a) => normalizeString(a)"
                 v-model="status"
                 width="140px"
@@ -17,8 +25,8 @@
     </div>
     <RoundedContainer>
         <template #title>
-            <template v-if="mode === 'issues'"> Known Issues </template>
-            <template v-if="mode === 'enhancements'"> Enhancements and Feature Requests </template>
+            <template v-if="mode === 'issues'">Known Issues</template>
+            <template v-if="mode === 'enhancements'">Enhancements and Feature Requests</template>
         </template>
         <div v-if="filtered.length > 0" v-for="issue in filtered" :key="issue.id" class="list">
             <GitHubIssueItem :issue="issue" />
@@ -38,7 +46,7 @@
 <script setup lang="ts">
 import type { GitHubIssue } from "~/types/GitHubIssue";
 import { computed, onMounted, ref } from "vue";
-import { Dropdown, normalizeString, RoundedContainer } from "@origami-systems/ui";
+import { Dropdown, TextField, normalizeString, RoundedContainer } from "@origami-systems/ui";
 import { getEnhancements } from "@utils/GetEnhancements";
 import { getIssues } from "@utils/GetIssues";
 import GitHubIssueItem from "./GitHubIssueItem.vue";

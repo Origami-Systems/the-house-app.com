@@ -3,8 +3,8 @@ allowBuilds:
     esbuild: true
     sharp: true
 catalog:
-    vite: npm:@voidzero-dev/vite-plus-core@0.3.0
-    vite-plus: 0.3.0
+    vite: npm:@voidzero-dev/vite-plus-core@8.3.8001
+    vite-plus: 1.8.0
 
 minimumReleaseAge: 2880
 
@@ -12,10 +12,17 @@ minimumReleaseAgeExclude:
     - "@origami-systems/*"
     - "@astrojs/*"
     - astro
+    - vite-plus
+    - "@voidzero-dev/*"
+    - oxlint
+    - "@oxlint/*"
+    - oxlint-tsgolint
+    - "@oxlint-tsgolint/*"
+    - oxfmt
+    - "@oxfmt/*"
+    - vitest
+    - "@vitest/*"
+    - tsrs
+    - "@tsrs/*"
 overrides:
-    vite: "catalog:"
-peerDependencyRules:
-    allowAny:
-        - vite
-    allowedVersions:
-        vite: "*"
+    vite@*: "catalog:"

@@ -15,4 +15,13 @@ export default defineConfig({
         contentIntellisense: true,
     },
     prefetch: true,
+    redirects: {
+        "/terms": "https://origamisystems.org/terms",
+        "/privacy": "https://origamisystems.org/privacy",
+        "/faq": "https://help.origamisystems.org/house/faq",
+        "/docs/features-games-cheering":
+            "https://help.origamisystems.org/house/features-games-cheering",
+        "/docs/install-as-app": "https://help.origamisystems.org/house/installable-app",
+        "/docs": "https://help.origamisystems.org/house",
+    },
 });

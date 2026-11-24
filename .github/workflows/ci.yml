@@ -21,7 +21,7 @@ jobs:
     #         - name: Setup node
     #           uses: actions/setup-node@v4
     #           with:
-    #               node-version: 26
+    #               node-version: 26.13.1
     #               cache: "pnpm"
     #         - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
     #         - run: pnpm install
@@ -31,9 +31,9 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v6
-            - uses: voidzero-dev/setup-vp@v1
+            - uses: voidzero-dev/setup-vp@v1.22.0
               with:
-                  node-version: "26"
+                  node-version: "26.13.1"
                   cache: true
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}
