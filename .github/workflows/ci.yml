@@ -23,7 +23,7 @@ jobs:
     #           with:
     #               node-version: 26.13.1
     #               cache: "pnpm"
-    #         - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}" >> .npmrc
+    #         - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
     #         - run: pnpm install
     #         - run: pnpm typecheck
     build:
@@ -36,6 +36,6 @@ jobs:
                   node-version: "26.13.1"
                   cache: true
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.ORIGAMI_SYSTEMS_PACKAGES }}
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - run: vp install
             - run: vpr build
