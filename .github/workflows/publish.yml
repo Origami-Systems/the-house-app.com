@@ -14,32 +14,6 @@ permissions:
     pages: write
     packages: read
     id-token: write
-concurrency:
-    group: "pages"
-    cancel-in-progress: false
 jobs:
     build:
-        runs-on: ubuntu-latest
-        permissions:
-            packages: read
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v6
-            - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN
-                  }}" >> .npmrc
-            - name: Install, build, and upload your site
-              uses: withastro/action@v6
-              with:
-                  node-version: 26.13.1
-                  package-manager: pnpm@12.23.0
-                  build-cmd: pnpm run build
-    deploy:
-        needs: build
-        runs-on: ubuntu-latest
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        steps:
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v5
+        uses: Origami-Systems/workflows/.github/workflows/astro-build.yml@main

@@ -7,35 +7,6 @@ permissions:
     pages: write
     packages: read
     id-token: write
-concurrency:
-    group: "pages"
-    cancel-in-progress: false
 jobs:
-    # typecheck: # can't typecheck because the typechecker doesn't know optional vue props
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Checkout repository
-    #           uses: actions/checkout@v5
-    #         - name: Enable corepack
-    #           run: corepack enable
-    #         - name: Setup node
-    #           uses: actions/setup-node@v4
-    #           with:
-    #               node-version: 26.13.1
-    #               cache: "pnpm"
-    #         - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
-    #         - run: pnpm install
-    #         - run: pnpm typecheck
     build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v6
-            - uses: voidzero-dev/setup-vp@v1.22.0
-              with:
-                  node-version: "26.13.1"
-                  cache: true
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - run: vp install
-            - run: vpr build
+        uses: Origami-Systems/workflows/.github/workflows/astro-check.yml@main

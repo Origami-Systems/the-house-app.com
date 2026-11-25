@@ -25,16 +25,16 @@
         "astro": "7.4.13",
         "sass": "^1.103.1",
         "sharp": "^0.35.5",
-        "vue": "^3.5.46"
+        "vue": "catalog:vue"
     },
     "devDependencies": {
+        "@origami-systems/dev-config": "^0.0.2",
+        "@typescript/native": "catalog:",
         "prettier": "3.10.1",
         "prettier-plugin-astro": "1.1.2",
+        "typescript": "catalog:",
         "vite": "catalog:",
         "vite-plus": "catalog:"
-    },
-    "peerDependencies": {
-        "typescript": "^5"
     },
     "devEngines": {
         "packageManager": {

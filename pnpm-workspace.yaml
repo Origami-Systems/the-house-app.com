@@ -1,12 +1,24 @@
+configDependencies:
+    "@origami-systems/pnpm-config": 0.0.4
+
+include:
+    "@origami-systems/pnpm-config":
+        - minimumReleaseAge
+        - minimumReleaseAgeExcludePrune
+        - trustPolicy
+        - trustPolicyExcludePrune
+        - trustPolicyExclude
+        - strictPeerDependencies
+        - autoDedupe
+        - lockfile
+        - catalogs
+        - overrides
+        - peerDependencyRules
+
 allowBuilds:
     "@parcel/watcher": true
     esbuild: true
     sharp: true
-catalog:
-    vite: npm:@voidzero-dev/vite-plus-core@8.3.8001
-    vite-plus: 1.8.0
-
-minimumReleaseAge: 2880
 
 minimumReleaseAgeExclude:
     - "@origami-systems/*"
@@ -16,7 +28,6 @@ minimumReleaseAgeExclude:
     - "@voidzero-dev/*"
     - oxlint
     - "@oxlint/*"
-    - oxlint-tsgolint
     - "@oxlint-tsgolint/*"
     - oxfmt
     - "@oxfmt/*"
@@ -24,5 +35,3 @@ minimumReleaseAgeExclude:
     - "@vitest/*"
     - tsrs
     - "@tsrs/*"
-overrides:
-    vite@*: "catalog:"
